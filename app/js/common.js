@@ -33,14 +33,14 @@ $(function() {
     $('.slider-fluid').slick({
         dots: false,
         infinite: true,
-        speed: 1100,
+        speed: 700,
         fade: true,
-        cssEase: 'linear',
+        cssEase: 'ease-in-out',
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: false,
-        nextArrow: "<span class='custom-next'><i class=\"fa fa-long-arrow-right\" aria-hidden=\"true\"></i></span>",
-        prevArrow: "<span class='custom-prev'><i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"></i></span>"
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
     });
 
     //---------------------
@@ -64,9 +64,9 @@ $(function() {
     var lang = $(".nav__lang-list");
     var itemNested = $(".nav__item-nested");
     function autoHeightMenu() {
-        var menu1Bottom = -menu1.outerHeight();
-        var menu2Bottom = -menu2.outerHeight()+ itemNested.outerHeight() + itemNested.height()/2;
-        var langBottom = -lang.outerHeight();
+        var menu1Bottom = -menu1.outerHeight(false);
+        var menu2Bottom = -menu2.outerHeight(false) + itemNested.outerHeight(false) + itemNested.height()/2;
+        var langBottom = -lang.outerHeight(false);
         menu1.css("bottom", menu1Bottom);
         lang.css("bottom", langBottom);
         menu2.css("bottom", menu2Bottom);
