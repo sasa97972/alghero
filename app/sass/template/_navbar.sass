@@ -26,7 +26,7 @@
   display: inline-flex
   align-items: center
   &:not(:last-child)
-    margin-right: 1em
+    margin-right: 1.5em
   &:hover > .nav__menu-nested
     visibility: visible
 
@@ -36,8 +36,10 @@
   color: #fff
 
 .nav__link
+  font-size: 0.8em
   text-transform: uppercase
   font-weight: bold
+  transition: color .5s
   &:visited,
   &:link,
   &:active
@@ -52,14 +54,18 @@
 
 .nav__menu-nested
   display: block
+  padding: 0
   visibility: hidden
   background-color: #fff
   position: absolute
   list-style: none
-  padding: 20px
   .nav__link
+    display: block
+    height: 100%
+    padding: 13px 30px
     text-transform: none
     font-weight: 400
+    transition: color .5s
     &:visited,
     &:link,
     &:active
@@ -68,12 +74,9 @@
     &:hover
       text-decoration: none
       color: $hover
-  .nav__menu-nested
-    padding-left: 30px
 
 .nav__item-nested
   position: relative
-  padding: 5px 0
   &:hover > .nav__menu-nested
     visibility: visible
 
@@ -89,15 +92,18 @@
 
 .nav__lang-list
   position: absolute
-  padding: 10px
+  padding: 0
   margin: 0
   display: none
   background-color: #fff
   list-style: none
 
 .nav__lang-link
+  display: block
+  padding: 10px 20px
   text-transform: none
   font-weight: 400
+  transition: color .5s
   &:visited,
   &:link,
   &:active
