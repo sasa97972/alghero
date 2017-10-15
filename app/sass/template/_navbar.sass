@@ -28,7 +28,7 @@
   &:not(:last-child)
     margin-right: 1em
   &:hover > .nav__menu-nested
-    display: block
+    visibility: visible
 
 
 .nav__logo
@@ -50,10 +50,10 @@
   color: #fff
 
 .nav__menu-nested
-  display: none
+  display: block
+  visibility: hidden
   background-color: #fff
   position: absolute
-  bottom: -190px
   list-style: none
   padding: 10px
   .nav__link
@@ -68,14 +68,13 @@
       color: $hover
   .nav__menu-nested
     right: -140px
-    bottom: -146px
 
 
 .nav__item-nested
   position: relative
   padding: 5px 0
   &:hover > .nav__menu-nested
-    display: block
+    visibility: visible
 
 
 .nav__lang
@@ -89,7 +88,6 @@
 
 .nav__lang-list
   position: absolute
-  bottom: -116px
   padding: 10px
   margin: 0
   display: none
