@@ -114,7 +114,76 @@ $(document).ready(function() {
                mobileMenu.css("display", "none");
            }
        }
-    })
+    });
 
+    //------------------------------
+    //--------SCROLLED MENU---------
+    //------------------------------
+    var menu = $("nav");
+    var scrollPrev = 0;
+    $(window).scroll(function() {
+        var header = $(".nav_fixed");
+        if(header.is(":visible")) {
+            var scrolled = $(window).scrollTop();
+            var firstScrollUp = false;
+            var firstScrollDown = false;
+
+            if ( scrolled > 0 ) {
+                if ( scrolled > scrollPrev ) {
+                    firstScrollUp = false;
+                    if ( scrolled < header.height() + header.offset().top ) {
+                        if ( firstScrollDown === false ) {
+                            var topPosition = header.offset().top;
+                            header.css({
+                                "top": topPosition + "px"
+                            });
+                            firstScrollDown = true;
+                        }
+                        header.removeClass("nav_collapse");
+                        header.css({
+                            "position": "absolute"
+                        });
+                    } else {
+                        header.addClass("nav_collapse");
+                        header.css({
+                            "position": "fixed",
+                            "top": "-" + header.height() + "px"
+                        });
+                    }
+                } else {
+                    firstScrollDown = false;
+                    if ( scrolled > header.offset().top ) {
+                        if ( firstScrollUp === false ) {
+                            var topPosition = header.offset().top;
+
+                            header.css({
+                                "top": topPosition + "px"
+                            });
+                            firstScrollUp = true;
+                        }
+                        header.css({
+                            "position": "absolute"
+                        });
+                    } else {
+                        header.removeAttr("style");
+                        header.addClass("nav_collapse");
+                    }
+                }
+                scrollPrev = scrolled;
+            }
+        }
+    });
+
+    //------------------------------
+    //--------FIXED MENU---------
+    //------------------------------
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 1) {
+                menu.addClass("nav_fixed");
+            } else {
+                menu.removeClass("nav_fixed");
+                menu.removeClass("nav_collapse");
+            }
+        });
 
 });
