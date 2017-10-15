@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 
     var body = $("body");
     //---------------------
@@ -30,12 +30,13 @@ $(function() {
         heightDetect();
     });
 
-    $('.slider-fluid').slick({
+    var slider = $('.slider-fluid');
+    slider.slick({
         dots: false,
         infinite: true,
-        speed: 700,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         fade: true,
-        cssEase: 'ease-in-out',
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: false,
@@ -65,14 +66,17 @@ $(function() {
     var itemNested = $(".nav__item-nested");
     function autoHeightMenu() {
         var menu1Bottom = -menu1.outerHeight(false);
-        var menu2Bottom = -menu2.outerHeight(false) + itemNested.outerHeight(false) + itemNested.height()/2;
+        var menu2Bottom = -menu2.height() + itemNested.outerHeight(false)/2 ;
+        var menu2Right = -menu2.outerWidth(false);
         var langBottom = -lang.outerHeight(false);
         menu1.css("bottom", menu1Bottom);
         lang.css("bottom", langBottom);
         menu2.css("bottom", menu2Bottom);
+        menu2.css("right", menu2Right);
     }
-    autoHeightMenu();
     $(window).on("resize", autoHeightMenu);
+    autoHeightMenu();
+    autoHeightMenu();
 
 
 });
