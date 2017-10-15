@@ -37,8 +37,8 @@ $(document).ready(function() {
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        speed: 600,
-        cssEase: "ease-in-out",
+        speed: 1000,
+        cssEase: "ease",
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: false,
@@ -47,10 +47,12 @@ $(document).ready(function() {
     });
 
     slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        $(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+currentSlide+"] > .slider__info").css("opacity", 0);
-        $(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+currentSlide+"] > .slider__info").animate({
-            opacity: 1
-        }, 1000)
+        // $(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+currentSlide+"] > .slider__info").css("opacity", 0);
+        // $(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+currentSlide+"] > .slider__info").animate({
+        //     opacity: 1
+        // }, 1500)
+        //$(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+nextSlide+"] > .slider__info").fadeOut(100);
+        //$(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+nextSlide+"] > .slider__info").fadeIn(600);
     });
 
     //---------------------
@@ -86,6 +88,24 @@ $(document).ready(function() {
     $(window).on("resize", autoHeightMenu);
     autoHeightMenu();
     autoHeightMenu();
+
+    //------------------------------
+    //----------OPEN MENU-----------
+    //------------------------------
+    var hamburger = $(".nav__menu-open-btn");
+    hamburger.on("click", function () {
+        $(this).toggleClass("is-active");
+        $(".nav__menu_mobile").slideToggle(400);
+    });
+    $(".nav__link:not(.nav__link-open)").on("click", function () {
+        hamburger.toggleClass("is-active");
+        $(".nav__menu_mobile").slideToggle(400);
+    });
+    $(".nav__link-open").on("click", function () {
+        $(this).next().slideToggle(400);
+        $(this).find(".fa").toggleClass("toggle_rotate");
+        return false;
+    })
 
 
 });

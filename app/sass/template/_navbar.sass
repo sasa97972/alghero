@@ -5,13 +5,14 @@
   left: 0
   top: 0
   width: 100%
+  color: #fff
 
 .nav__wrap
   position: relative
   width: 100%
   height: 65px
   display: flex
-  flex-flow: row nowrap
+  flex-flow: row wrap
   justify-content: space-between
   align-items: center
   border-bottom: 1px solid rgba(250,250,250,0.12)
@@ -24,7 +25,8 @@
 .nav__item
   height: 100%
   display: inline-flex
-  align-items: center
+  justify-content: center
+  flex-flow: column nowrap
   &:not(:last-child)
     margin-right: 1.5em
   &:hover > .nav__menu-nested
@@ -33,7 +35,7 @@
 
 .nav__logo
   margin: .3em 0
-  color: #fff
+  color: inherit
 
 .nav__link
   font-size: 0.8em
@@ -43,7 +45,7 @@
   &:visited,
   &:link,
   &:active
-    color: #fff
+    color: inherit
     text-decoration: none
   &:hover
     text-decoration: none
@@ -86,12 +88,15 @@
   display: flex
   align-items: center
   position: relative
+  color: inherit
   &:hover .nav__lang-list
     display: block
 
 
 .nav__lang-list
   position: absolute
+  left: 0
+  transform: translateX(-40%)
   padding: 0
   margin: 0
   display: none
@@ -117,3 +122,28 @@
     cursor: default
     &:hover
       color: $text-color
+
+.nav__menu-open
+  display: none
+
+.hamburger-box
+  width: 35px
+  height: 18px
+
+.hamburger-inner
+  background-color: $header-color
+  width: 35px
+  height: 2px
+  &:after,
+  &:before
+    @extend .hamburger-inner
+
+.nav__menu_mobile,
+.nav__mobile-wrapper
+  display: none
+
+.toggle_rotate
+  transform: rotate(90deg)
+.fa-caret-right
+  transition: transform .5s
+

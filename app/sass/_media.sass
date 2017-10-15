@@ -20,9 +20,64 @@
 
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px)
-	/**/
+@media only screen and (max-width : 576px)
+  /* MENU */
+  .nav__wrap
+    min-height: 65px
+    height: auto
+  .nav__mobile-wrapper
+    display: block
+  .nav_collapse
+    background-color: #fff
+    color: $title-color
+  .nav__menu
+    display: none
+  .nav__menu_mobile
+    display: none
+    width: 100%
+  .nav__item
+    width: 100%
+    height: auto
+    &:not(:last-child)
+      border-bottom: 1px solid #eaeaea
+  .nav__link
+    font-size: 1.2em
+    padding: 6px 0
+  .nav__lang,
+  .nav__menu-nested
+    display: none
+  .nav__menu-open
+    display: block
+  .nav__menu_mobile
+    .nav__menu-nested
+      display: none
+      visibility: visible
+      position: static
+      width: 100%
+      .nav__menu-nested
+        .nav__link
+          padding: 13px 30px 13px 60px
+    .nav__item-nested
+      width: 100%
+      height: auto
+      &:not(:last-child)
+        border-bottom: 1px solid #eaeaea
+  .nav__link,
+  .nav__item-nested
+    z-index: 1
 
+  /* GALLERY */
+  .slider__info
+    width: 300px
+  .slider__header,
+  .slider__header:focus,
+  .slider__header:active,
+  .slider__header:visited
+    font-size: 4em
+  .slider__text
+    font-size: 1.8em
+  .slick-arrow
+    display: none
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
