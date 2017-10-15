@@ -1,0 +1,114 @@
+@import "../vars"
+
+.nav
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+
+.nav__wrap
+  position: relative
+  width: 100%
+  height: 65px
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-items: center
+  border-bottom: 1px solid rgba(250,250,250,0.12)
+
+.nav__menu
+  height: 100%
+  margin: .3em 0
+  padding: 0
+
+.nav__item
+  height: 100%
+  display: inline-flex
+  align-items: center
+  &:not(:last-child)
+    margin-right: 1em
+  &:hover > .nav__menu-nested
+    display: block
+
+
+.nav__logo
+  margin: .3em 0
+  color: #fff
+
+.nav__link
+  text-transform: uppercase
+  font-weight: bold
+  &:visited,
+  &:link,
+  &:active
+    color: #fff
+  &:hover
+    text-decoration: none
+    color: $hover
+
+.nav__lang
+  color: #fff
+
+.nav__menu-nested
+  display: none
+  background-color: #fff
+  position: absolute
+  bottom: -190px
+  list-style: none
+  padding: 10px
+  .nav__link
+    text-transform: none
+    font-weight: 400
+    &:visited,
+    &:link,
+    &:active
+      color: $text-color
+    &:hover
+      text-decoration: none
+      color: $hover
+  .nav__menu-nested
+    right: -140px
+    bottom: -146px
+
+
+.nav__item-nested
+  position: relative
+  padding: 5px 0
+  &:hover > .nav__menu-nested
+    display: block
+
+
+.nav__lang
+  height: 100%
+  display: flex
+  align-items: center
+  position: relative
+  &:hover .nav__lang-list
+    display: block
+
+
+.nav__lang-list
+  position: absolute
+  bottom: -116px
+  padding: 10px
+  margin: 0
+  display: none
+  background-color: #fff
+  list-style: none
+
+.nav__lang-link
+  text-transform: none
+  font-weight: 400
+  &:visited,
+  &:link,
+  &:active
+    color: $text-color
+    text-decoration: none
+  &:hover
+    text-decoration: none
+    color: $hover
+  &_active
+    color: $text-color
+    cursor: default
+    &:hover
+      color: $text-color
