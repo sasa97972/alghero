@@ -46,14 +46,25 @@ $(document).ready(function() {
         prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
     });
 
-    slider.on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        // $(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+currentSlide+"] > .slider__info").css("opacity", 0);
-        // $(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+currentSlide+"] > .slider__info").animate({
-        //     opacity: 1
-        // }, 1500)
-        //$(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+nextSlide+"] > .slider__info").fadeOut(100);
-        //$(".slider__item[data-slick-index="+nextSlide+"] > img, .slider__item[data-slick-index="+nextSlide+"] > .slider__info").fadeIn(600);
+    //---------------------
+    //-SLIDER KEY CONTROL--
+    //---------------------
+    slider.on("mouseover", function (e) {
+        document.querySelector("body").addEventListener("keydown", keyControl($(this), e));
+    }, function (e) {
+        document.querySelector("body").removeEventListener("keydown", keyControl($(this), e));
     });
+
+   function keyControl(slider, e) {
+        switch (e.keyCode) {
+            case 37: // влево
+                slider.slick("slickPrev");
+                break;
+            case 39: // вправо
+                slider.slick("slickNext");
+                break;
+        }
+   }
 
     //---------------------
     //----HIDE CONTROL-----
@@ -149,7 +160,6 @@ $(document).ready(function() {
                             "position": "fixed",
                             "top": "-" + header.height() + "px"
                         });
-                        //header.addClass("nav_collapse");
                     }
                 } else {
                     firstScrollDown = false;
@@ -168,7 +178,6 @@ $(document).ready(function() {
                         header.addClass("nav_collapse");
                     } else {
                         header.removeAttr("style");
-                        header.addClass("nav_collapse");
                     }
                 }
                 scrollPrev = scrolled;
@@ -177,7 +186,7 @@ $(document).ready(function() {
     });
 
     //------------------------------
-    //--------FIXED MENU---------
+    //----------FIXED MENU----------
     //------------------------------
         $(window).scroll(function () {
             if ($(this).scrollTop() > menu.outerHeight(false)) {
