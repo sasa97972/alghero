@@ -63,9 +63,11 @@ $(document).ready(function() {
         $(".slick-arrow").fadeOut();
     }
     body.on("mousemove", function () {
-        $(".slick-arrow").fadeIn();
-        clearTimeout(timeout);
-        timeout = setTimeout(hide, 3000);
+        if($(document).width() > 576) {
+            $(".slick-arrow").fadeIn();
+            clearTimeout(timeout);
+            timeout = setTimeout(hide, 3000);
+        }
     });
 
     //------------------------------
@@ -128,7 +130,7 @@ $(document).ready(function() {
             var firstScrollUp = false;
             var firstScrollDown = false;
 
-            if ( scrolled > 0 ) {
+            if ( scrolled > 100 ) {
                 if ( scrolled > scrollPrev ) {
                     firstScrollUp = false;
                     if ( scrolled < header.height() + header.offset().top ) {
@@ -139,16 +141,15 @@ $(document).ready(function() {
                             });
                             firstScrollDown = true;
                         }
-                        header.removeClass("nav_collapse");
                         header.css({
                             "position": "absolute"
                         });
                     } else {
-                        header.addClass("nav_collapse");
                         header.css({
                             "position": "fixed",
                             "top": "-" + header.height() + "px"
                         });
+                        //header.addClass("nav_collapse");
                     }
                 } else {
                     firstScrollDown = false;
@@ -164,6 +165,7 @@ $(document).ready(function() {
                         header.css({
                             "position": "absolute"
                         });
+                        header.addClass("nav_collapse");
                     } else {
                         header.removeAttr("style");
                         header.addClass("nav_collapse");
@@ -178,7 +180,7 @@ $(document).ready(function() {
     //--------FIXED MENU---------
     //------------------------------
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 1) {
+            if ($(this).scrollTop() > menu.outerHeight(false)) {
                 menu.addClass("nav_fixed");
             } else {
                 menu.removeClass("nav_fixed");
