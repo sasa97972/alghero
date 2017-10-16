@@ -23,7 +23,13 @@ $(document).ready(function() {
     //-FULL SCREEN SLIDER--
     //---------------------
     function heightDetect() {
-        $(".slider__item").css("height", $(window).height());
+        if($(window).width() < 577) {
+            $(".slider__item").css("height", $(window).height()-$(".nav").outerHeight(false));
+            $(".gallery-fluid").css("paddingTop", $(".nav").outerHeight(false));
+        } else {
+            $(".gallery-fluid").css("paddingTop", 0);
+            $(".slider__item").css("height", $(window).height());
+        }
     }
     heightDetect();
     $(window).on("resize", function() {
@@ -142,7 +148,7 @@ $(document).ready(function() {
             var firstScrollUp = false;
             var firstScrollDown = false;
 
-            if ( scrolled > 100 ) {
+            if ( scrolled > menu.outerHeight(false) ) {
                 if ( scrolled > scrollPrev ) {
                     firstScrollUp = false;
                     if ( scrolled < header.height() + header.offset().top ) {
@@ -189,13 +195,28 @@ $(document).ready(function() {
     //------------------------------
     //----------FIXED MENU----------
     //------------------------------
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > menu.outerHeight(false)) {
-                menu.addClass("nav_fixed");
-            } else {
-                menu.removeClass("nav_fixed");
-                menu.removeClass("nav_collapse");
-            }
-        });
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > menu.outerHeight(false)) {
+            menu.addClass("nav_fixed");
+        } else if ($(this).scrollTop() === 0) {
+            menu.removeClass("nav_fixed");
+            menu.removeClass("nav_collapse");
+        }
+    });
+
+    //------------------------------
+    //----------IMG HEIGHT----------
+    //------------------------------
+    var images = $(".slider__image");
+    function autoImgHeight() {
+        if ($(window).width() < $(window).height()) {
+            var height = $(window).height() - menu.outerHeight(false)*2;
+            images.css("height", height);
+        } else {
+            images.css("height", "auto");
+        }
+    }
+    autoImgHeight();
+    $(window).on("resize", autoImgHeight);
 
 });
