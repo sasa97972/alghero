@@ -49,9 +49,10 @@ $(document).ready(function() {
     //---------------------
     //-SLIDER KEY CONTROL--
     //---------------------
-    slider.on("mouseover", function (e) {
+    $(".gallery-fluid").on("mouseover", function (e) {
         document.querySelector("body").addEventListener("keydown", keyControl($(this), e));
-    }, function (e) {
+    });
+    $(".gallery-fluid").on("mouseout", function (e) {
         document.querySelector("body").removeEventListener("keydown", keyControl($(this), e));
     });
 
