@@ -24,13 +24,19 @@
   flex-flow: column nowrap
   justify-content: center
   align-items: center
-  background-color: rgba(0,0,0,.7)
+  //background-color: rgba(0,0,0,.7)
 
 .gallery-fluid__col
   padding: 0
 
 .slider__item
   position: relative
+  &:nth-child(1)
+    background: url("../img/bg.jpg") no-repeat center center fixed / cover
+  &:nth-child(2)
+    background: url("../img/bg2.jpg") no-repeat center center fixed / cover
+  &:nth-child(3)
+    background: url("../img/bg.jpg") no-repeat center center fixed / cover
 
 .slider__info
   z-index: 1

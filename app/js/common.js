@@ -207,16 +207,16 @@ $(document).ready(function() {
     //------------------------------
     //----------IMG HEIGHT----------
     //------------------------------
-    var images = $(".slider__image");
-    function autoImgHeight() {
-        if ($(window).width() < $(window).height()) {
-            var height = $(window).height() - menu.outerHeight(false)*2;
-            images.css("height", height);
-        } else {
-            images.css("height", "auto");
-        }
-    }
-    autoImgHeight();
-    $(window).on("resize", autoImgHeight);
+    // var images = $(".slider__image");
+    // function autoImgHeight() {
+    //     if ($(window).width() < $(window).height()) {
+    //         var height = $(window).height() - menu.outerHeight(false)*2;
+    //         images.css("height", height);
+    //     } else {
+    //         images.css("height", "auto");
+    //     }
+    // }
+    // autoImgHeight();
+    // $(window).on("resize", autoImgHeight);
 
 });
