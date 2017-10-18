@@ -116,9 +116,7 @@ $(document).ready(function() {
         menu2.css("bottom", menu2Bottom);
         menu2.css("right", menu2Right);
     }
-    $(window).on("resize", autoHeightMenu);
-    autoHeightMenu();
-    autoHeightMenu();
+    $(window).on("resize", autoHeightMenu).resize();
 
     //------------------------------
     //----------OPEN MENU-----------
@@ -244,7 +242,10 @@ $(document).ready(function() {
     //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
-    body.fadeIn(3000);
+    //body.fadeIn(3000);
+    body.animate({
+    	opacity: 1
+    }, 3000);
 
     //------------------------------
     //----------IMG HEIGHT----------
