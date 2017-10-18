@@ -217,16 +217,6 @@ $(document).ready(function() {
         }
     });
 
-    //------------------------------
-    //----------IMG HEIGHT----------
-    //------------------------------
-    var images = $(".slider__gallery-image");
-    function autoImgHeight() {
-        images.css("width", $(".container").outerWidth(false));
-    }
-    autoImgHeight();
-    $(window).on("resize", autoImgHeight);
-
     //---------------------
     //----SLIDER GALLERY---
     //---------------------
@@ -243,7 +233,23 @@ $(document).ready(function() {
         autoplay: true,
         autoplaySpeed: 3000,
         nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
-        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    dots: true
+                }
+            }]
     });
+
+    //------------------------------
+    //----------IMG HEIGHT----------
+    //------------------------------
+    function autoImgHeight() {
+        $(".slider__gallery-image").css("width", $(".container").outerWidth(false));
+    }
+    autoImgHeight();
+    $(window).on("resize", autoImgHeight);
 
 });
