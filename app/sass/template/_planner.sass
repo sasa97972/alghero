@@ -1,0 +1,68 @@
+@import "../vars"
+
+.planner__row
+  padding: 40px 0
+
+.planner__header
+  text-align: center
+  text-transform: uppercase
+  color: $header-color
+  font-size: 3em
+
+.planner__text
+  margin-bottom: 30px
+  text-align: center
+  color: $title-color
+  font-size: 1.3em
+  font-family: 'Playfair Display', serif
+  font-style: italic
+
+.planner__slider-header,
+.planner__slider-header:focus,
+.planner__slider-header:active,
+.planner__slider-header:visited
+  display: block
+  padding: 20px 20px 0 20px
+  text-align: center
+  color: #fff
+  font-size: 3em
+  transition: color .5s
+  text-decoration: none
+  text-transform: uppercase
+  outline: none
+  word-wrap: break-word
+  cursor: pointer
+  &:hover
+    color: $hover
+    text-decoration: none
+
+.planner__slider-text
+  padding: 0 20px 20px 20px
+  color: #fff
+  text-align: center
+
+.planner__slider
+  .custom-prev,
+  .custom-next
+    position: absolute
+    z-index: 1
+    top: 50%
+    transform: translateY(-50%)
+    color: $title-color
+    font-size: 3em
+    cursor: pointer
+    transition: color .5s
+  .custom-prev:hover,
+  .custom-next:hover
+    color: $hover
+  .custom-prev
+    left: -1em
+  .custom-next
+    right: -1em
+
+.planner__slider-info
+  max-width: 100%
+
+.planner__slider-item
+  margin: 0 20px
+  background: url("../img/planner.jpg") no-repeat center center / cover

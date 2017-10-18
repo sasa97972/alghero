@@ -239,10 +239,45 @@ $(document).ready(function() {
             }]
     });
 
+    //---------------------
+    //----PLANNER SLIDER---
+    //---------------------
+    var planner = $('.planner__slider');
+    planner.slick({
+        dots: false,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        speed: 1000,
+        //autoplay: true,
+        //autoplaySpeed: 3000,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    dots: true,
+                    slidesToShow: 1
+                }
+            }]
+    });
+
+    //------------------------------
+    //---PLANNER ITEM AUTO HEIGHT---
+    //------------------------------
+    function PlannerAutoHeight() {
+        var sliders = $(".planner__slider-item");
+        sliders.css("height", "auto");
+        sliders.css("height", $('.planner__slider').outerHeight(false));
+    }
+    PlannerAutoHeight();
+    $(window).on("resize", PlannerAutoHeight);
+
+
     //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
-    //body.fadeIn(3000);
     body.animate({
     	opacity: 1
     }, 3000);
