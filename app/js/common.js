@@ -4,8 +4,6 @@ $(document).ready(function() {
     //---------------------
     //----SLOW REDIRECT----
     //---------------------
-    body.css("display", "none");
-    body.fadeIn(3000);
     $("a.transition").click(function(event){
         event.preventDefault();
         linkLocation = this.href;
@@ -242,6 +240,11 @@ $(document).ready(function() {
                 }
             }]
     });
+
+    //------------------------------
+    //--------SHOW CONTENT----------
+    //------------------------------
+    body.fadeIn(3000);
 
     //------------------------------
     //----------IMG HEIGHT----------
