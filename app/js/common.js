@@ -55,20 +55,33 @@ $(document).ready(function() {
     //---------------------
     //-SLIDER KEY CONTROL--
     //---------------------
-    $(".gallery-fluid").on("mouseover", function (e) {
-        document.querySelector("body").addEventListener("keydown", keyControl($(this), e));
+    var activeSlider;
+    $(".slider-fluid").on("mouseover", function (e) {
+        (function (event, slider) {
+            activeSlider = slider;
+            window.addEventListener("keydown", keyControl, false);
+        })(e, $(this));
     });
-    $(".gallery-fluid").on("mouseout", function (e) {
-        document.querySelector("body").removeEventListener("keydown", keyControl($(this), e));
+    $(".slider-fluid").on("mouseout", function (e) {
+        window.removeEventListener("keydown", keyControl, false);
+    });
+    $(".slider__gallery").on("mouseover", function (e) {
+        (function (event, slider) {
+            activeSlider = slider;
+            window.addEventListener("keydown", keyControl, false);
+        })(e, $(this));
+    });
+    $(".slider__gallery").on("mouseout", function (e) {
+        window.removeEventListener("keydown", keyControl, false);
     });
 
-   function keyControl(slider, e) {
+   function keyControl(e) {
         switch (e.keyCode) {
             case 37: // влево
-                slider.slick("slickPrev");
+                activeSlider.slick("slickPrev");
                 break;
             case 39: // вправо
-                slider.slick("slickNext");
+                activeSlider.slick("slickNext");
                 break;
         }
    }
@@ -207,16 +220,30 @@ $(document).ready(function() {
     //------------------------------
     //----------IMG HEIGHT----------
     //------------------------------
-    // var images = $(".slider__image");
-    // function autoImgHeight() {
-    //     if ($(window).width() < $(window).height()) {
-    //         var height = $(window).height() - menu.outerHeight(false)*2;
-    //         images.css("height", height);
-    //     } else {
-    //         images.css("height", "auto");
-    //     }
-    // }
-    // autoImgHeight();
-    // $(window).on("resize", autoImgHeight);
+    var images = $(".slider__gallery-image");
+    function autoImgHeight() {
+        images.css("width", $(".container").outerWidth(false));
+    }
+    autoImgHeight();
+    $(window).on("resize", autoImgHeight);
+
+    //---------------------
+    //----SLIDER GALLERY---
+    //---------------------
+    var gallery = $('.slider__gallery');
+    gallery.slick({
+        dots: false,
+        infinite: true,
+        centerMode: true,
+        centerPadding: '70px',
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        speed: 1000,
+        variableWidth: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
+    });
 
 });

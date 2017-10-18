@@ -1,69 +1,50 @@
 @import "../vars"
 
-.gallery-fluid
+.gallery__row
+  padding-top: 40px
+  padding-bottom: 20px
+
+.gallery__header
+  text-align: center
+  text-transform: uppercase
+  color: $header-color
+  font-size: 3em
+  font-weight: normal
+
+.gallery__text
+  text-align: center
+  color: $text-color
+  font-size: 1.3em
+  font-family: 'Playfair Display', serif
+
+.slider__gallery-image
+  display: block
+  width: 1140px
+  height: auto
+  margin: 0 50px
+  opacity: 0.3
+  transform: scale(0.8)
+  transition: opacity 1s, transform 1s
+
+.gallery
   .custom-prev,
   .custom-next
     position: absolute
     z-index: 1
     top: 50%
     transform: translateY(-50%)
-    color: #fff
     font-size: 3em
     cursor: pointer
+    color: $header-color
     transition: color .5s
   .custom-prev:hover,
   .custom-next:hover
-    color: $hover
+    color: $text-color
   .custom-prev
     left: 1em
   .custom-next
     right: 1em
-
-.slick-initialized .slick-slide
-  display: flex
-  flex-flow: column nowrap
-  justify-content: center
-  align-items: center
-  //background-color: rgba(0,0,0,.7)
-
-.gallery-fluid__col
-  padding: 0
-
-.slider__item
-  position: relative
-  &:nth-child(1)
-    background: url("../img/bg.jpg") no-repeat center center fixed / cover
-  &:nth-child(2)
-    background: url("../img/bg2.jpg") no-repeat center center fixed / cover
-  &:nth-child(3)
-    background: url("../img/bg.jpg") no-repeat center center fixed / cover
-
-.slider__info
-  z-index: 1
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-
-.slider__header,
-.slider__header:focus,
-.slider__header:active,
-.slider__header:visited
-  display: block
-  text-align: center
-  color: #fff
-  font-size: 5em
-  transition: color .5s
-  text-decoration: none
-  text-transform: uppercase
-  outline: none
-  &:hover
-     color: $hover
-     text-decoration: none
-
-.slider__text
-  text-align: center
-  color: #fff
-  font-size: 2em
-  font-family: 'Playfair Display', serif
-  font-style: italic
+  .slick-center
+    .slider__gallery-image
+      opacity: 1
+      transform: scale(1)
