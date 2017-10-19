@@ -1,0 +1,21 @@
+.top
+  position: fixed
+  right: 1.33em
+  bottom: 1.33em
+  width: 3.5em
+  height: 3.33em
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: $title-color
+  color: #fff
+  font-size: 1em
+  z-index: 998
+  transition: transform .3s
+  cursor: pointer
+  .fa
+    font-size: 1.5em
+    margin-bottom: 2px
+    transition: transform .5s
+  &:active .fa
+    transform: translateY(-7px)

@@ -18,6 +18,23 @@ $(document).ready(function() {
     });
 
     //---------------------
+    //------SCROLL TOP-----
+    //---------------------
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.top').fadeIn();
+        } else {
+            $('.top').fadeOut();
+        }
+    });
+    $(".top").on("click", function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 1200);
+        return false;
+    });
+
+    //---------------------
     //-FULL SCREEN SLIDER--
     //---------------------
     function heightDetect() {
