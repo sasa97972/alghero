@@ -1,0 +1,34 @@
+@import "../vars"
+
+.jewelry
+  height: 500px
+  background: url("../img/parallax1.jpg") no-repeat 0 0 / cover
+
+.jewelry__row
+  height: 100%
+  align-items: center
+  justify-content: center
+
+.jewelry__header,
+.jewelry__header:focus,
+.jewelry__header:active,
+.jewelry__header:visited
+  display: block
+  text-align: center
+  color: $title-color
+  font-size: 4em
+  transition: color .5s
+  text-decoration: none
+  text-transform: uppercase
+  outline: none
+  font-weight: bold
+  &:hover
+    color: $hover
+    text-decoration: none
+
+.jewelry__text
+  text-align: center
+  color: $text-color
+  font-size: 1.6em
+  font-family: 'Playfair Display', serif
+  font-style: italic

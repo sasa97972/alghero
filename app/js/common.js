@@ -54,22 +54,13 @@ $(document).ready(function() {
     //-SLIDER KEY CONTROL--
     //---------------------
     var activeSlider;
-    $(".slider-fluid").on("mouseover", function (e) {
+    $(".slider").on("mouseover", function (e) {
         (function (event, slider) {
             activeSlider = slider;
             window.addEventListener("keydown", keyControl, false);
         })(e, $(this));
     });
-    $(".slider-fluid").on("mouseout", function (e) {
-        window.removeEventListener("keydown", keyControl, false);
-    });
-    $(".slider__gallery").on("mouseover", function (e) {
-        (function (event, slider) {
-            activeSlider = slider;
-            window.addEventListener("keydown", keyControl, false);
-        })(e, $(this));
-    });
-    $(".slider__gallery").on("mouseout", function (e) {
+    $(".slider").on("mouseout", function (e) {
         window.removeEventListener("keydown", keyControl, false);
     });
 
@@ -249,8 +240,8 @@ $(document).ready(function() {
         slidesToShow: 2,
         slidesToScroll: 1,
         speed: 1000,
-        //autoplay: true,
-        //autoplaySpeed: 3000,
+        autoplay: true,
+        autoplaySpeed: 3000,
         nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
         prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
         responsive: [
@@ -274,6 +265,22 @@ $(document).ready(function() {
     PlannerAutoHeight();
     $(window).on("resize", PlannerAutoHeight);
 
+
+    //---------------------
+    //-TESTIMONIALS SLIDER-
+    //---------------------
+    var testimonials = $('.testimonials__slider');
+    testimonials.slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1000,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
+    });
 
     //------------------------------
     //--------SHOW CONTENT----------

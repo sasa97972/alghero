@@ -1,0 +1,40 @@
+@import "../vars"
+
+.testimonials__row
+  padding: 40px 0 4.7em 0
+
+.testimonials__header
+  text-align: center
+  color: $title-color
+  font-size: 2.5em
+  transition: color .5s
+  text-decoration: none
+  text-transform: uppercase
+  outline: none
+  font-weight: bold
+
+.testimonials__text
+  text-align: center
+  color: $header-color
+  font-size: 1.2em
+  font-family: 'Playfair Display', serif
+  font-style: italic
+
+.testimonials__slider
+  .custom-prev,
+  .custom-next
+    position: absolute
+    z-index: 1
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 2em
+    cursor: pointer
+    color: $header-color
+    transition: color .5s
+  .custom-prev:hover,
+  .custom-next:hover
+    color: $text-color
+  .custom-prev
+    left: -1em
+  .custom-next
+    right: -1em
