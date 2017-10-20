@@ -312,6 +312,29 @@ $(document).ready(function() {
         prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
     });
 
+    //---------------------
+    //---CONTACTS SLIDER---
+    //---------------------
+    var contacts = $('.contacts__row-slider');
+    contacts.slick({
+        dots: true,
+        arrows: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        speed: 1000,
+        centerMode: true,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+    });
+
     //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
@@ -329,3 +352,71 @@ $(document).ready(function() {
     $(window).on("resize", autoImgHeight);
 
 });
+
+//------------------------------
+//----------GOOGLE MAP----------
+//------------------------------
+var slider = $(".contacts__row-slider");
+function initMap() {
+    var map = new google.maps.Map(document.querySelector('.contacts__row-map'), {
+        zoom: 14,
+        center: {lat: 40.5705125, lng: 8.3129463}
+    });
+
+    //MARKER 1
+    var marker1 = new google.maps.Marker({
+        position: {lat: 40.5821677, lng: 8.3156581},
+        map: map,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|f4ffbf",
+    });
+    var infoWindow1 = new google.maps.InfoWindow({
+        content: "Officine di Idee (photo & video production)"
+    });
+    marker1.addListener("mouseover", function () {
+        infoWindow1.open(map, marker1);
+    });
+    marker1.addListener("mouseout", function () {
+        infoWindow1.close(map, marker1);
+    });
+    marker1.addListener("click", function () {
+        slider.slick("slickGoTo", 1)
+    });
+
+    //MARKER 2
+    var marker2 = new google.maps.Marker({
+        position: {lat: 40.557562, lng: 8.3114933},
+        map: map,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|ffdcbf",
+    });
+    var infoWindow2 = new google.maps.InfoWindow({
+        content: "Ep Events Planning & Consulting"
+    });
+    marker2.addListener("mouseover", function () {
+        infoWindow2.open(map, marker2);
+    });
+    marker2.addListener("mouseout", function () {
+        infoWindow2.close(map, marker2);
+    });
+    marker2.addListener("click", function () {
+        slider.slick("slickGoTo", 2)
+    });
+
+    //MARKER 3
+    var marker3 = new google.maps.Marker({
+        position: {lat: 40.559076, lng: 8.3113893},
+        map: map,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|c6f7c3",
+    });
+    var infoWindow3 = new google.maps.InfoWindow({
+        content: "Gioielleria Marti"
+    });
+    marker3.addListener("mouseover", function () {
+        infoWindow3.open(map, marker3);
+    });
+    marker3.addListener("mouseout", function () {
+        infoWindow3.close(map, marker3);
+    });
+    marker3.addListener("click", function () {
+        slider.slick("slickGoTo", 3)
+    });
+}

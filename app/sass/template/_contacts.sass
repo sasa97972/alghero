@@ -9,4 +9,33 @@
   padding-bottom: 20px
 
 .contacts__row-map
-  height: 400px
+  height: 600px
+
+.contacts__link
+  display: block
+
+.contacts__slider-item
+  margin: 0 20px
+  transform: scale(0.8)
+  transition:  transform .5s
+  &.slick-center
+    transform: scale(1)
+
+.contacts__img
+  display: block
+  max-width: 100%
+  height: auto
+  border-radius: 50%
+  transition: opacity .5s
+  &:hover
+    opacity: 0.5
+
+.contacts__row-slider
+  padding: 30px 0
+  .slick-dots
+    bottom: 5px
+
+.contacts__slider-descr
+  padding: 10px 0 0 0
+  text-align: center
+  font-style: italic

@@ -208,7 +208,7 @@
                     <h2 class="video__header">Video & Post production</h2>
                     <p class="video__text">The wedding of your dreams deserves to be in a movie, so it should be filmed as such. Our team will use drones, 4k cameras and lifetime of experience to make you say “I had no idea this is even possible”. Make your wedding film the first one that your friends will watch till the end.</p>
                     <div class="video-responsive">
-                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/KOckOcKZ70g?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen class="video__video"></iframe>
+                        <iframe src="https://www.youtube.com/embed/KOckOcKZ70g?rel=0&amp;showinfo=0" allowfullscreen class="video__video"></iframe>
                     </div>
                 </div>
             </div>
@@ -294,14 +294,42 @@
 
     <div class="top"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
 
-    <section class="contacts container">
-        <div class="row contacts__row-header">
-            <div class="col-md-12">
-                <h2 class="contacts__header">Our team brings together the best professionals in wedding organization and management.</h2>
+    <section class="contacts container-fluid">
+        <div class="container">
+            <div class="row contacts__row-header">
+                <div class="col-md-12">
+                    <h2 class="contacts__header">Our team brings together the best professionals in wedding organization and management.</h2>
+                </div>
             </div>
         </div>
-        <div class="row contacts__row-map">
-
+        <div class="row contacts__row-map"></div>
+        <div class="container">
+            <div class="row contacts__row-slider slider">
+                <div class="contacts__slider-item">
+                    <a href="#" class="contacts__link">
+                        <img src="img/people/Bruno_Cattari.jpg" alt="#" class="contacts__img">
+                    </a>
+                    <h3 class="contacts__slider-descr">Bruno Cattari / Photography, Video & Postproduction</h3>
+                </div>
+                <div class="contacts__slider-item">
+                    <a href="#" class="contacts__link">
+                        <img src="img/people/Emilio_Canu.jpg" alt="#" class="contacts__img">
+                    </a>
+                    <h3 class="contacts__slider-descr">Emilio Canu / Photography, Video & Postproduction</h3>
+                </div>
+                <div class="contacts__slider-item">
+                    <a href="#" class="contacts__link">
+                        <img src="img/people/Eva_Puledda.jpg" alt="#" class="contacts__img">
+                    </a>
+                    <h3 class="contacts__slider-descr">Eva Puledda / Wedding planning</h3>
+                </div>
+                <div class="contacts__slider-item">
+                    <a href="#" class="contacts__link">
+                        <img src="img/people/Gianni_Marti.jpg" alt="#" class="contacts__img">
+                    </a>
+                    <h3 class="contacts__slider-descr">Gianni Marti / Jewelry couturier</h3>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -309,20 +337,7 @@
 	
 	<link rel="stylesheet" href="css/main.min.css">
 	<script src="js/scripts.min.js"></script>
-    <script>
-        function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044};
-            var map = new google.maps.Map(document.querySelector('.contacts__row-map'), {
-                zoom: 6,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
-    <script async defer
+    <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJRZCjGHw4h2VYpeJMjjeG1WjQ7nisHk4&callback=initMap">
     </script>
 
