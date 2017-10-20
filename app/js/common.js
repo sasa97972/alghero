@@ -312,29 +312,6 @@ $(document).ready(function() {
         prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
     });
 
-    //---------------------
-    //---CONTACTS SLIDER---
-    //---------------------
-    var contacts = $('.contacts__row-slider');
-    contacts.slick({
-        dots: true,
-        arrows: false,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        speed: 1000,
-        centerMode: true,
-        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
-        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1
-                }
-            }]
-    });
-
     //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
@@ -353,6 +330,7 @@ $(document).ready(function() {
 
 });
 
+
 //------------------------------
 //----------GOOGLE MAP----------
 //------------------------------
@@ -361,7 +339,7 @@ function initMap() {
     var map = new google.maps.Map(document.querySelector('.contacts__row-map'), {
         zoom: 14,
         center: {lat: 40.5705125, lng: 8.3129463},
-        styles: [{"featureType":"administrative","elementType":"all","stylers":[{"saturation":"-100"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","elementType":"all","stylers":[{"saturation":-100},{"lightness":"50"},{"visibility":"simplified"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":"-100"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"lightness":"30"}]},{"featureType":"road.local","elementType":"all","stylers":[{"lightness":"40"}]},{"featureType":"transit","elementType":"all","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]},{"featureType":"water","elementType":"labels","stylers":[{"lightness":-25},{"saturation":-100}]}]
+        styles: [{"featureType":"all","elementType":"geometry.fill","stylers":[{"weight":"2.00"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"color":"#9c9c9c"}]},{"featureType":"all","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#eeeeee"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#7b7b7b"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c8d7d4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#070707"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]}]
     });
 
     //MARKER 1
@@ -371,7 +349,10 @@ function initMap() {
         icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|f4ffbf",
     });
     var infoWindow1 = new google.maps.InfoWindow({
-        content: "Officine di Idee (photo & video production)"
+        content: "<div class='marker__info'>" +
+        "<span class='marker__name'>Officine di Idee (photo & video production)</span>" +
+        "<span class='marker__address'>Alghero, via Don Minzoni 198</span>" +
+        "</div>"
     });
     marker1.addListener("mouseover", function () {
         infoWindow1.open(map, marker1);
@@ -390,7 +371,10 @@ function initMap() {
         icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|ffdcbf",
     });
     var infoWindow2 = new google.maps.InfoWindow({
-        content: "Ep Events Planning & Consulting"
+        content: "<div class='marker__info'>" +
+        "<span class='marker__name'>Ep Events Planning & Consulting</span>" +
+        "<span class='marker__address'>Alghero, Via Gilbert Ferret 52</span>" +
+        "</div>"
     });
     marker2.addListener("mouseover", function () {
         infoWindow2.open(map, marker2);
@@ -409,7 +393,10 @@ function initMap() {
         icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|c6f7c3",
     });
     var infoWindow3 = new google.maps.InfoWindow({
-        content: "Gioielleria Marti"
+        content: "<div class='marker__info'>" +
+        "<span class='marker__name'>Gioielleria Marti</span>" +
+        "<span class='marker__address'>Alghero, via Carlo Alberto 12</span>" +
+        "</div>"
     });
     marker3.addListener("mouseover", function () {
         infoWindow3.open(map, marker3);
@@ -420,4 +407,38 @@ function initMap() {
     marker3.addListener("click", function () {
         slider.slick("slickGoTo", 3)
     });
+
+    //---------------------
+    //---CONTACTS SLIDER---
+    //---------------------
+    var contacts = $('.contacts__row-slider');
+    contacts.slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        speed: 1000,
+        centerMode: true,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+    });
+
+    contacts.on('afterChange', function(event, slick, currentSlide){
+        var data = $(".contacts__slider-item[data-slick-index="+currentSlide+"]").data("marker");
+        if(data) {
+            var marker = $(".contacts__slider-item[data-slick-index="+currentSlide+"]").data("marker");
+            map.setZoom(16);
+            map.setCenter(eval(marker).getPosition());
+        }
+
+    });
+
 }

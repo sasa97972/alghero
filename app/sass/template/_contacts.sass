@@ -34,6 +34,23 @@
   padding: 30px 0
   .slick-dots
     bottom: 5px
+  .custom-prev,
+  .custom-next
+    position: absolute
+    z-index: 1
+    top: 50%
+    transform: translateY(-50%)
+    color: $title-color
+    font-size: 3em
+    cursor: pointer
+    transition: color .5s
+  .custom-prev:hover,
+  .custom-next:hover
+    color: $hover
+  .custom-prev
+    left: -1em
+  .custom-next
+    right: -1em
 
 .contacts__slider-name
   padding: 10px 0 0 0
@@ -57,3 +74,13 @@
   &:hover
     background-color: #fff
     color: $title-color
+
+.marker__name
+  display: block
+  text-align: center
+  font-size: 15px
+  font-weight: bold
+
+.marker__address
+  display: block
+  text-align: center
