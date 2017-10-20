@@ -20,19 +20,30 @@ $(document).ready(function() {
     //---------------------
     //------SCROLL TOP-----
     //---------------------
+    var topButton = $(".top");
+    topButton.fadeOut(1);
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
-            $('.top').fadeIn();
+            topButton.fadeIn();
         } else {
-            $('.top').fadeOut();
+            topButton.fadeOut();
         }
     });
-    $(".top").on("click", function () {
+    topButton.on("click", function () {
         $('body,html').animate({
             scrollTop: 0
         }, 1200);
         return false;
     });
+
+    //---------------------
+    //-----CHANGE LOGO-----
+    //---------------------
+    $(window).on("resize", function () {
+       if($(".nav__mobile-wrapper").is(":visible")) {
+           $(".nav__logo-img").attr("src", "img/logo.png");
+       }
+    }).resize();
 
     //---------------------
     //-FULL SCREEN SLIDER--
@@ -215,9 +226,11 @@ $(document).ready(function() {
     $(window).scroll(function () {
         if ($(this).scrollTop() > menu.outerHeight(false)) {
             menu.addClass("nav_fixed");
+            $(window).width() > 576 ? $(".nav__logo-img").attr("src", "img/logo.png") : "";
         } else if ($(this).scrollTop() === 0) {
             menu.removeClass("nav_fixed");
             menu.removeClass("nav_collapse");
+            $(window).width() > 576 ? $(".nav__logo-img").attr("src", "img/logo_black.png") : "";
         }
     });
 
