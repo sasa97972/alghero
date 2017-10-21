@@ -221,13 +221,13 @@
                 <h2 class="planner__header">Wedding Planner</h2>
                 <p class="planner__text">Making a dream come true</p>
                 <div class="planner__slider slider">
-                    <div class="planner__slider-item">
+                    <div class="planner__slider-item planner__slide-one">
                         <div class="planner__slider-info">
                             <a class="planner__slider-header">Event Planner</a>
                             <p class="planner__slider-text">Fun wedding. Cool wedding. Elite wedding. Wild wedding. Kinky wedding. Elegant or colorful, noble or hip, vintage or postmodern. Wedding as a statement, and wedding as an art. Your wedding goes on your terms.</p>
                         </div>
                     </div>
-                    <div class="planner__slider-item">
+                    <div class="planner__slider-item planner__slide-two">
                         <div class="planner__slider-info">
                             <a class="planner__slider-header">Flower Arrangement</a>
                             <p class="planner__slider-text">Every flower in that giant ark is as important as a bride’s bouquet for us. Perfect ceremony deserves perfect decorations.</p>
@@ -368,17 +368,17 @@
                 <div class="col-md-3 col-sm-6 footer__address">
                     <span class="footer__address-text">
                         Alghero Weddding
-                        <br>via Don Giovanni Minzoni, 198
-                        <br>07041 Alghero SS, Italy
-                        <br><a href="#" class="footer__address-email">info@algherowedding.com</a>
-                        <br><a href="#" class="footer__address-phone">+ 39 327 287 6729</a>
+                        <br><i class="fa fa-map-marker" aria-hidden="true"></i> via Don Giovanni Minzoni, 198
+                        <br><i class="fa fa-map-marker" aria-hidden="true"></i> 07041 Alghero SS, Italy
+                        <br><i class="fa fa-envelope" aria-hidden="true"></i> <a href="#" class="footer__address-email">info@algherowedding.com</a>
+                        <br><i class="fa fa-phone" aria-hidden="true"></i> <a href="#" class="footer__address-phone">+ 39 327 287 6729</a>
                     </span>
                 </div>
                 <div class="col-md-3 col-sm-6 footer__form">
                     <div class="footer__form-content">
                         <h3 class="footer__form-describe">Subscribe</h3>
                         <form action="" method="post" class="footer__form-form">
-                            <input type="text" class="form__email" placeholder="Enter your email" name="email" autocomplete="off">
+                            <input type="email" class="form__email" placeholder="Enter your email" name="email" autocomplete="off">
                             <button type="submit" class="form__button"><i class="fa fa-envelope" aria-hidden="true"></i></button>
                         </form>
                     </div>
@@ -386,12 +386,43 @@
             </div>
         </div>
     </footer>
+
+    <div class="overlay__form">
+        <div class="popup__wrapper">
+            <div class="popup">
+                <span class="popup__close">X</span>
+                <h2 class="popup__header">Contact us</h2>
+                <form action="" method="post" class="popup__form">
+                    <p class="popup__form-field">
+                        <select name="inquir" id="inquir" class="popup__select">
+                            <option value="wed">Wedding Planning</option>
+                            <option value="photo">Photo / Video</option>
+                            <option value="location">Locations</option>
+                            <option value="travels">Travels</option>
+                            <option value="jewelry">Jewelry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </p>
+                    <p class="popup__form-field">
+                        <input type="email" class="popup__input" placeholder="E-mail Address" name="email" required>
+                    </p>
+                    <p class="popup__form-field">
+                        <input type="text" class="popup__input" placeholder="Your phone" name="phone">
+                    </p>
+                    <p class="popup__form-field">
+                        <textarea class="popup__text-area" name="msg" id="msg" placeholder="Your message"></textarea>
+                    </p>
+                    <p class="popup__form-field">
+                        <button class="popup__button" type="submit">Submit</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
 	
 	<link rel="stylesheet" href="css/main.min.css">
 	<script src="js/scripts.min.js"></script>
-    <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJRZCjGHw4h2VYpeJMjjeG1WjQ7nisHk4&callback=initMap">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJRZCjGHw4h2VYpeJMjjeG1WjQ7nisHk4&callback=initMap"></script>
 
 </body>
 </html>

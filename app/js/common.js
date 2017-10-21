@@ -312,6 +312,26 @@ $(document).ready(function() {
         prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>"
     });
 
+    //---------------------
+    //--------POPUP--------
+    //---------------------
+    function OffScroll() {
+        var winScrollTop = $(window).scrollTop();
+        $(window).bind('scroll',function () {
+            $(window).scrollTop(winScrollTop);
+        });
+    }
+
+    $(".contacts__button").on("click", function () {
+       $(".overlay__form").fadeIn(500);
+        OffScroll();
+    });
+    $(".popup__close").on("click", function () {
+        $(".overlay__form").fadeOut(500);
+        $(window).unbind('scroll');
+    });
+
+
     //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------

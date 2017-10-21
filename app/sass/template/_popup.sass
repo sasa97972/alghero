@@ -1,0 +1,73 @@
+.overlay__form
+  display: none
+  z-index: 1000
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  background-color: rgba(0,0,0,.8)
+
+.popup__wrapper
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.popup
+  position: relative
+  width: 30%
+  padding: 3em
+  text-align: center
+  background-color: #fff
+
+.popup__header
+  font-size: 2em
+  text-align: center
+  text-transform: uppercase
+  font-weight: normal
+
+.popup__input
+  width: 100%
+  padding: 1.3em 2em
+  border: 1px solid rgba(0,0,0,.2)
+  font-family: $default-font
+  font-style: italic
+
+.popup__select
+  padding: 1.3em 2em
+  width: 100%
+  border: 1px solid rgba(0,0,0,.2)
+
+.popup__text-area
+  width: 100%
+  height: 100px
+  padding: 1.3em
+  border: 1px solid rgba(0,0,0,.2)
+  font-family: $default-font
+  font-style: italic
+
+.popup__button
+  display: inline-block
+  padding: 15px 40px
+  text-transform: uppercase
+  background-color: $header-color
+  color: #fff
+  border: 1px solid $header-color
+  cursor: pointer
+  transition: background-color .5s, color .5s
+  &:hover
+    background-color: #fff
+    color: $title-color
+
+.popup__close
+  position: absolute
+  font-size: 1.2em
+  top: 10px
+  right: 20px
+  font-weight: bold
+  cursor: pointer
+  transition: transform .5s
+  &:hover
+    transform: scale(1.1)
