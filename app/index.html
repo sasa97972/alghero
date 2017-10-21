@@ -285,7 +285,7 @@
 
     <section class="travel container-fluid">
         <div class="row travel__row">
-            <div class="col-md-12">
+            <div class="col-md-12 travel__content">
                 <a href="#" class="travel__header">Travel</a>
                 <p class="travel__text">Breathtaking mountains and sparkling seaside are just the beginning. When you discover Sardinia, you will rediscover yourself.</p>
             </div>
@@ -306,30 +306,30 @@
         <div class="container">
             <div class="row contacts__row-slider slider">
                 <div class="contacts__slider-item">
-                    <a href="#" class="contacts__link">
+                    <div class="contacts__link">
                         <img src="img/people/Bruno_Cattari.jpg" alt="#" class="contacts__img">
-                    </a>
+                    </div>
                     <h3 class="contacts__slider-name">Bruno Cattari </h3>
                     <h4 class="contacts__slider-position">Photography, Video & Postproduction</h4>
                 </div>
                 <div class="contacts__slider-item" data-marker="marker1">
-                    <a href="#" class="contacts__link">
+                    <div class="contacts__link">
                         <img src="img/people/Emilio_Canu.jpg" alt="#" class="contacts__img">
-                    </a>
+                    </div>
                     <h3 class="contacts__slider-name">Emilio Canu </h3>
                     <h4 class="contacts__slider-position">Photography, Video & Postproduction</h4>
                 </div>
                 <div class="contacts__slider-item" data-marker="marker2">
-                    <a href="#" class="contacts__link">
+                    <div class="contacts__link">
                         <img src="img/people/Eva_Puledda.jpg" alt="#" class="contacts__img">
-                    </a>
+                    </div>
                     <h3 class="contacts__slider-name">Eva Puledda </h3>
                     <h4 class="contacts__slider-position">Wedding planning</h4>
                 </div>
                 <div class="contacts__slider-item" data-marker="marker3">
-                    <a href="#" class="contacts__link">
+                    <div class="contacts__link">
                         <img src="img/people/Gianni_Marti.jpg" alt="#" class="contacts__img">
-                    </a>
+                    </div>
                     <h3 class="contacts__slider-name">Gianni Marti </h3>
                     <h4 class="contacts__slider-position">Jewelry couturier</h4>
                 </div>
@@ -345,10 +345,19 @@
     <footer class="footer container-fluid">
         <div class="container">
             <div class="row footer__row">
-                <div class="col-md-3 footer__logo">
-                    <a href="#" class="footer__logo-link"><img src="img/logo.png" alt="Alghero" class="footer__logo-img"></a>
+                <div class="col-md-3 col-sm-6 footer__logo">
+                    <div class="footer__logo-content">
+                        <a href="#" class="footer__logo-link"><img src="img/logo.png" alt="Alghero" class="footer__logo-img"></a>
+                        <ul class="footer__social">
+                            <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <div class="footer__copyright">
+                            <span>&copy; 2017 Alghero Wedding</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 footer__menu">
+                <div class="col-md-3 col-sm-6 footer__menu">
                     <ul class="footer__list">
                         <li class="footer__item"><a href="#" class="footer__link">Services</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Portfolio</a></li>
@@ -356,11 +365,23 @@
                         <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 footer__form">
-                    <form action="" class="footer__form">
-                        <input type="text" class="form__email" placeholder="Enter your email" name="email" autocomplete="off">
-                        <button type="submit" class="form__button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                    </form>
+                <div class="col-md-3 col-sm-6 footer__address">
+                    <span class="footer__address-text">
+                        Alghero Weddding
+                        <br>via Don Giovanni Minzoni, 198
+                        <br>07041 Alghero SS, Italy
+                        <br><a href="#" class="footer__address-email">info@algherowedding.com</a>
+                        <br><a href="#" class="footer__address-phone">+ 39 327 287 6729</a>
+                    </span>
+                </div>
+                <div class="col-md-3 col-sm-6 footer__form">
+                    <div class="footer__form-content">
+                        <h3 class="footer__form-describe">Subscribe</h3>
+                        <form action="" method="post" class="footer__form-form">
+                            <input type="text" class="form__email" placeholder="Enter your email" name="email" autocomplete="off">
+                            <button type="submit" class="form__button"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
