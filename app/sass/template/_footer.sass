@@ -1,0 +1,76 @@
+@import "../vars"
+
+.footer
+  position: relative
+  z-index: 999
+  background-color: #4a3e5a
+  color: #fff
+
+.footer__row
+  padding: 30px 0
+
+.footer__logo-link
+  display: block
+
+.footer__logo-img
+  display: block
+  max-width: 100%
+  height: auto
+
+.footer__menu
+  display: flex
+  flex-flow: row wrap
+  align-items: center
+  justify-content: center
+  padding: 10px
+
+.footer__logo
+  @extend .footer__menu
+
+.footer__list
+  padding: 0
+  margin: 0
+
+.footer__item
+  display: inline-block
+  &:not(:last-child)
+    margin-right: 10px
+
+.footer__link
+  color: inherit
+  font-size: 1em
+  text-decoration: none
+  text-transform: uppercase
+  font-weight: bold
+  transition: color .5s
+  &:link,
+  &:visited
+    @extend .footer__link
+  &:hover
+    color: $hover
+
+.footer__form
+  @extend .footer__menu
+  flex-flow: row nowrap
+  padding: 0
+
+.form__email
+  border: none
+  padding: 12px
+  width: 80%
+  margin-right: -3px
+  border-radius: 10px 0 0 10px
+
+.form__button
+  display: block
+  border: none
+  padding: 12px
+  width: 20%
+  border-radius: 0 10px 10px 0
+  cursor: pointer
+  transition: transform .5s, background-color .5s
+  background-color: #eaeaea
+  &:hover
+    background-color: $text-color
+  &:active
+    transform: scale(1.1)
