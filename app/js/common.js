@@ -18,6 +18,17 @@ $(document).ready(function() {
     });
 
     //---------------------
+    //-----SLOW SCROLL-----
+    //---------------------
+    $('a[href^="#"]').bind("click", function(e){
+        var anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $(anchor.attr('href')).offset().top
+        }, 1000);
+        e.preventDefault();
+    });
+
+    //---------------------
     //------SCROLL TOP-----
     //---------------------
     var topButton = $(".top");
@@ -315,22 +326,101 @@ $(document).ready(function() {
     //---------------------
     //--------POPUP--------
     //---------------------
-    function OffScroll() {
-        var winScrollTop = $(window).scrollTop();
-        $(window).bind('scroll',function () {
-            $(window).scrollTop(winScrollTop);
-        });
+    var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+    function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault)
+            e.preventDefault();
+        e.returnValue = false;
+    }
+
+    function preventDefaultForScrollKeys(e) {
+        if (keys[e.keyCode]) {
+            preventDefault(e);
+            return false;
+        }
+    }
+
+    function disableScroll() {
+        if (window.addEventListener) // older FF
+            window.addEventListener('DOMMouseScroll', preventDefault, false);
+        window.onwheel = preventDefault; // modern standard
+        window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+        window.ontouchmove  = preventDefault; // mobile
+        document.onkeydown  = preventDefaultForScrollKeys;
+    }
+
+    function enableScroll() {
+        if (window.removeEventListener)
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.onmousewheel = document.onmousewheel = null;
+        window.onwheel = null;
+        window.ontouchmove = null;
+        document.onkeydown = null;
     }
 
     $(".contacts__button").on("click", function () {
-       $(".overlay__form").fadeIn(500);
-        OffScroll();
+        $(".overlay__form").fadeIn(500, function () {
+            popupForm();
+        });
+        disableScroll();
     });
     $(".popup__close").on("click", function () {
         $(".overlay__form").fadeOut(500);
-        $(window).unbind('scroll');
+        enableScroll();
     });
 
+    //------------------------------
+    //-------AJAX FORM FOOTER-------
+    //------------------------------
+    $(".form__button").on("click", function(){
+        var value = $(".form__email").val().trim();
+        if(value && value.match(/^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/gim)){
+            var msg  = $('#footer-form').serialize();
+            $.ajax({
+                type: 'POST',
+                url: '/api/newsletter',
+                data: msg,
+                success: function(data) {
+                    $('#footer-form').html("Thank you for your subscribe!");
+                },
+                error:  function(xhr, str){
+                    alert('Возникла ошибка: ' + xhr.responseCode);
+                }
+            });
+        } else {
+            alert("Напишите, пожалуйста, ваш e-mail");
+        }
+        return false;
+    });
+
+    //------------------------------
+    //------AJAX FORM CONTACT-------
+    //------------------------------
+    function popupForm() {
+        $(".popup__button").on("click", function() {
+            var email = $(".popup__email").val().trim();
+            var message = $(".popup__message").val().trim();
+            if(email && email.match(/^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/gim) && message){
+                var msg  = $('#popup-form').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/newsletter',
+                    data: msg,
+                    success: function(data) {
+                        $('#popup-form').html("Thank you for your message!");
+                    },
+                    error:  function(xhr, str){
+                        alert('Возникла ошибка: ' + xhr.responseCode);
+                    }
+                });
+            } else {
+                alert("Напишите, пожалуйста, ваш e-mail и сообщение");
+            }
+            return false;
+        });
+    }
 
     //------------------------------
     //--------SHOW CONTENT----------
