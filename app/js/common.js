@@ -4,7 +4,8 @@ $(document).ready(function() {
     //---------------------
     //----SLOW REDIRECT----
     //---------------------
-    $("a.transition").click(function(event){
+    var linkLocation;
+    $("a[href^='/']").click(function(event){
         event.preventDefault();
         linkLocation = this.href;
         body.fadeOut(1000, redirectPage);
@@ -20,7 +21,7 @@ $(document).ready(function() {
     //---------------------
     //-----SLOW SCROLL-----
     //---------------------
-    $('a[href^="#"]').bind("click", function(e){
+    $('a[href^="#"]:not(.nav__link-open)').bind("click", function(e){
         var anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $(anchor.attr('href')).offset().top
@@ -178,7 +179,7 @@ $(document).ready(function() {
     //------------------------------
     //--------SCROLLED MENU---------
     //------------------------------
-    var menu = $("nav");
+    var menu = $(".nav");
     var scrollPrev = 0;
     $(window).scroll(function() {
         var header = $(".nav_fixed");

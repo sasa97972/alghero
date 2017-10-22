@@ -1,0 +1,28 @@
+@import "../vars"
+
+.top-bar
+  border-bottom: 1px solid #ebebeb
+  color: $text-color
+
+.top-bar__row
+  padding: 10px 0
+
+.top-bar__separator
+  padding: 0 5px
+  color: inherit
+  font-weight: bold
+
+.top-bar__link
+  color: $text-color
+  text-decoration: none
+  transition: color .5s
+  font-weight: bold
+  &:link,
+  &:visited
+    @extend .top-bar__link
+  &:hover
+    color: $hover
+
+.top-bar__open
+  color: inherit
+  font-weight: bold

@@ -67,6 +67,7 @@
   background-color: #fff
   position: absolute
   list-style: none
+  z-index: 2
   .nav__link
     display: block
     height: 100%
@@ -163,3 +164,8 @@
   visibility: visible
   background-color: #fff
   color: $title-color
+
+.nav_static
+  @extend .nav__wrap
+  @extend .nav_collapse
+  border-bottom: 1px solid #ebebeb
