@@ -7,23 +7,22 @@
   font-size: 4em
 
 .services__service
-  padding: 0 20px
-  margin-bottom: 40px
-  display: flex
-  flex-flow: column nowrap
-  align-items: center
+  padding: 2em
+  text-align: center
 
 .services__text
   text-align: center
+  color: $text-color
 
 .services__header
-  padding-bottom: 15px
-  color: $text-color
+  display: inline-block
+  font-size: 1.5em
+  margin: 0.5em 0
+  color: $header-color
+  text-transform: uppercase
+  font-weight: normal
   text-decoration: none
   transition: color .5s
-  font-weight: 400
-  text-align: center
-  font-size: 1.7em
   &:link,
   &:visited
     @extend .services__header
