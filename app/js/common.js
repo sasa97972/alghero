@@ -466,25 +466,39 @@ contacts.slick({
         }]
 });
 
+var firstWindow = true;
+var marker;
+var infoWindow;
+
 contacts.on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    var data = $(".contacts__slider-item[data-slick-index="+nextSlide+"]").data("marker");
+    var slide = $(".contacts__slider-item[data-slick-index="+nextSlide+"]");
+    var data = slide.data("marker");
     if(data) {
-        var marker = $(".contacts__slider-item[data-slick-index="+nextSlide+"]").data("marker");
+        var marker = slide.data("marker");
         map.setZoom(16);
         var lat = window[marker].getPosition().lat();
         var lng = window[marker].getPosition().lng();
         map.panTo(new google.maps.LatLng(lat, lng));
+
+        if(!firstWindow) {
+            window[infoWindow].close(map, window[marker]);
+        }
+        window[slide.data("info")].open(map, window[slide.data("marker")]);
+        marker = slide.data("marker");
+        infoWindow = slide.data("info");
+        firstWindow = false;
     }
-
 });
-
-function changeLat(lat, lng) {
-    console.log(lat, lng);
-    map.panTo(new google.maps.LatLng(lat, lng));
-}
 
 $(".contacts__slider-item").on("click", function(){
     slider.slick("slickGoTo", $(this).data("slick-index"));
+    if(!firstWindow) {
+        window[infoWindow].close(map, window[marker]);
+    }
+    window[$(this).data("info")].open(map, window[$(this).data("marker")]);
+    marker = $(this).data("marker");
+    infoWindow = $(this).data("info");
+    firstWindow = false;
 });
 
 //------------------------------
@@ -505,7 +519,7 @@ function initMap() {
         map: map,
         icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|f4ffbf",
     });
-    var infoWindow1 = new google.maps.InfoWindow({
+    window.infoWindow1 = new google.maps.InfoWindow({
         content: "<div class='marker__info'>" +
         "<span class='marker__name'>Officine di Idee (photo & video production)</span>" +
         "<span class='marker__address'>Alghero, via Don Minzoni 198</span>" +
@@ -518,7 +532,7 @@ function initMap() {
         infoWindow1.close(map, marker1);
     });
     marker1.addListener("click", function () {
-        slider.slick("slickGoTo", 1)
+        slider.slick("slickGoTo", 0)
     });
 
     //MARKER 2
@@ -527,7 +541,7 @@ function initMap() {
         map: map,
         icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|ffdcbf",
     });
-    var infoWindow2 = new google.maps.InfoWindow({
+    window.infoWindow2 = new google.maps.InfoWindow({
         content: "<div class='marker__info'>" +
         "<span class='marker__name'>Ep Events Planning & Consulting</span>" +
         "<span class='marker__address'>Alghero, Via Gilbert Ferret 52</span>" +
@@ -540,7 +554,7 @@ function initMap() {
         infoWindow2.close(map, marker2);
     });
     marker2.addListener("click", function () {
-        slider.slick("slickGoTo", 2)
+        slider.slick("slickGoTo", 1)
     });
 
     //MARKER 3
@@ -549,7 +563,7 @@ function initMap() {
         map: map,
         icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|c6f7c3",
     });
-    var infoWindow3 = new google.maps.InfoWindow({
+    window.infoWindow3 = new google.maps.InfoWindow({
         content: "<div class='marker__info'>" +
         "<span class='marker__name'>Gioielleria Marti</span>" +
         "<span class='marker__address'>Alghero, via Carlo Alberto 12</span>" +
