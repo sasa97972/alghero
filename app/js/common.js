@@ -454,6 +454,7 @@ contacts.slick({
     slidesToScroll: 1,
     speed: 1000,
     centerMode: true,
+    centerPadding: "23px",
     nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
     prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
     responsive: [
@@ -465,15 +466,22 @@ contacts.slick({
         }]
 });
 
-contacts.on('afterChange', function(event, slick, currentSlide){
-    var data = $(".contacts__slider-item[data-slick-index="+currentSlide+"]").data("marker");
+contacts.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    var data = $(".contacts__slider-item[data-slick-index="+nextSlide+"]").data("marker");
     if(data) {
-        var marker = $(".contacts__slider-item[data-slick-index="+currentSlide+"]").data("marker");
+        var marker = $(".contacts__slider-item[data-slick-index="+nextSlide+"]").data("marker");
         map.setZoom(16);
-        map.setCenter(window[marker].getPosition());
+        var lat = window[marker].getPosition().lat();
+        var lng = window[marker].getPosition().lng();
+        map.panTo(new google.maps.LatLng(lat, lng));
     }
 
 });
+
+function changeLat(lat, lng) {
+    console.log(lat, lng);
+    map.panTo(new google.maps.LatLng(lat, lng));
+}
 
 $(".contacts__slider-item").on("click", function(){
     slider.slick("slickGoTo", $(this).data("slick-index"));
