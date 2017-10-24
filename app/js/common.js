@@ -509,6 +509,8 @@ $(".contacts__slider-item").on("click", function(){
     }
 });
 
+
+var isOpen = true;
 //------------------------------
 //----------GOOGLE MAP----------
 //------------------------------
@@ -537,10 +539,14 @@ function initMap() {
         infoWindow1.open(map, marker1);
     });
     marker1.addListener("mouseout", function () {
-        infoWindow1.close(map, marker1);
+        if(isOpen) {
+            infoWindow1.close(map, marker1);
+        }
+        isOpen = true;
     });
     marker1.addListener("click", function () {
-        slider.slick("slickGoTo", 0)
+        slider.slick("slickGoTo", 0);
+        isOpen = false;
     });
 
     //MARKER 2
@@ -559,10 +565,14 @@ function initMap() {
         infoWindow2.open(map, marker2);
     });
     marker2.addListener("mouseout", function () {
-        infoWindow2.close(map, marker2);
+        if(isOpen) {
+            infoWindow2.close(map, marker2);
+        }
+        isOpen = true;
     });
     marker2.addListener("click", function () {
-        slider.slick("slickGoTo", 1)
+        slider.slick("slickGoTo", 1);
+        isOpen = false;
     });
 
     //MARKER 3
@@ -581,10 +591,14 @@ function initMap() {
         infoWindow3.open(map, marker3);
     });
     marker3.addListener("mouseout", function () {
-        infoWindow3.close(map, marker3);
+        if(isOpen) {
+            infoWindow3.close(map, marker3);
+        }
+        isOpen = true;
     });
     marker3.addListener("click", function () {
-        slider.slick("slickGoTo", 3)
+        slider.slick("slickGoTo", 3);
+        isOpen = false;
     });
 
 }
