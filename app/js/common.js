@@ -467,13 +467,14 @@ contacts.slick({
 });
 
 var firstWindow = true;
+var animStart = false;
 var marker;
 var infoWindow;
 
 contacts.on('beforeChange', function(event, slick, currentSlide, nextSlide){
     var slide = $(".contacts__slider-item[data-slick-index="+nextSlide+"]");
     var data = slide.data("marker");
-    if(data) {
+    if(data && !animStart) {
         var marker = slide.data("marker");
         map.setZoom(16);
         var lat = window[marker].getPosition().lat();
@@ -488,17 +489,24 @@ contacts.on('beforeChange', function(event, slick, currentSlide, nextSlide){
         infoWindow = slide.data("info");
         firstWindow = false;
     }
+    animStart = true;
+});
+
+contacts.on('afterChange', function(event, slick, currentSlide, nextSlide) {
+  animStart = false;
 });
 
 $(".contacts__slider-item").on("click", function(){
-    slider.slick("slickGoTo", $(this).data("slick-index"));
-    if(!firstWindow) {
-        window[infoWindow].close(map, window[marker]);
+    if(!animStart) {
+        slider.slick("slickGoTo", $(this).data("slick-index"));
+        if(!firstWindow) {
+            window[infoWindow].close(map, window[marker]);
+        }
+        window[$(this).data("info")].open(map, window[$(this).data("marker")]);
+        marker = $(this).data("marker");
+        infoWindow = $(this).data("info");
+        firstWindow = false;
     }
-    window[$(this).data("info")].open(map, window[$(this).data("marker")]);
-    marker = $(this).data("marker");
-    infoWindow = $(this).data("info");
-    firstWindow = false;
 });
 
 //------------------------------
