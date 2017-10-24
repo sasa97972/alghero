@@ -423,6 +423,17 @@ $(document).ready(function() {
         });
     }
 
+    //---------------------
+    //FULL SCREEN CONTACTS-
+    //---------------------
+    function heightDetectContact() {
+            $(".hero-fluid__content").css("height", $(window).height()-$(".nav_static").outerHeight(false));
+    }
+    heightDetectContact();
+    $(window).on("resize", function() {
+        heightDetectContact();
+    });
+
     //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
