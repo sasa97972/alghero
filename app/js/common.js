@@ -363,7 +363,7 @@ $(document).ready(function() {
 
     $(".contacts__button").on("click", function () {
         $(".overlay__form").fadeIn(500, function () {
-            popupForm();
+            //popupForm();
         });
         disableScroll();
     });
@@ -422,6 +422,7 @@ $(document).ready(function() {
             return false;
         });
     }
+    popupForm();
 
     //---------------------
     //FULL SCREEN CONTACTS-
