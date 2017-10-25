@@ -613,3 +613,72 @@ function initMap() {
     });
 
 }
+
+//------------------------------
+//-----GOOGLE MAP CONTACT-------
+//------------------------------
+function initContactMap() {
+    var map = new google.maps.Map(document.querySelector('.contact__map-map'), {
+        zoom: 14,
+        center: {lat: 40.5705125, lng: 8.3129463},
+        styles: [{"featureType":"all","elementType":"geometry.fill","stylers":[{"weight":"2.00"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"color":"#9c9c9c"}]},{"featureType":"all","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#eeeeee"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#7b7b7b"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c8d7d4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#070707"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]}],
+        disableDefaultUI: true
+    });
+
+    //MARKER 1
+    var marker1 = new google.maps.Marker({
+        position: {lat: 40.5821677, lng: 8.3156581},
+        map: map,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|f4ffbf",
+    });
+    var infoWindow1 = new google.maps.InfoWindow({
+        content: "<div class='marker__info'>" +
+        "<span class='marker__name'>Officine di Idee (photo & video production)</span>" +
+        "<span class='marker__address'>Alghero, via Don Minzoni 198</span>" +
+        "</div>"
+    });
+    marker1.addListener("mouseover", function () {
+        infoWindow1.open(map, marker1);
+    });
+    marker1.addListener("mouseout", function () {
+        infoWindow1.close(map, marker1);
+    });
+
+    //MARKER 2
+    var marker2 = new google.maps.Marker({
+        position: {lat: 40.557562, lng: 8.3114933},
+        map: map,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|ffdcbf",
+    });
+    var infoWindow2 = new google.maps.InfoWindow({
+        content: "<div class='marker__info'>" +
+        "<span class='marker__name'>Ep Events Planning & Consulting</span>" +
+        "<span class='marker__address'>Alghero, Via Gilbert Ferret 52</span>" +
+        "</div>"
+    });
+    marker2.addListener("mouseover", function () {
+        infoWindow2.open(map, marker2);
+    });
+    marker2.addListener("mouseout", function () {
+        infoWindow2.close(map, marker2);
+    });
+
+    //MARKER 3
+    var marker3 = new google.maps.Marker({
+        position: {lat: 40.559076, lng: 8.3113893},
+        map: map,
+        icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|c6f7c3",
+    });
+    var infoWindow3 = new google.maps.InfoWindow({
+        content: "<div class='marker__info'>" +
+        "<span class='marker__name'>Gioielleria Marti</span>" +
+        "<span class='marker__address'>Alghero, via Carlo Alberto 12</span>" +
+        "</div>"
+    });
+    marker3.addListener("mouseover", function () {
+        infoWindow3.open(map, marker3);
+    });
+    marker3.addListener("mouseout", function () {
+        infoWindow3.close(map, marker3);
+    });
+}

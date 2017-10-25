@@ -1,0 +1,49 @@
+@import "../vars"
+
+.contact__row
+  padding: 4em 0
+
+.contact__header
+  font-size: 2.5em
+  text-transform: uppercase
+  border-bottom: 1px solid rgba(250,250,250,0.4)
+  padding-bottom: 0.1em
+  margin-bottom: 0.3em
+  letter-spacing: 2px
+
+.contact__text
+  font-size: 1.3em
+  font-family: 'Playfair Display', serif
+  font-style: italic
+  padding-bottom: 1em
+
+.contact__map
+  display: flex
+  flex-flow: column nowrap
+
+.contact__map-map
+  width: 100%
+  min-height: 500px
+  flex: 1
+  &:after
+    content: ""
+    display: block
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 30px
+    background-color: #fff
+    z-index: 3
+
+.contact__address
+  font-size: 1em
+  font-family: 'Playfair Display', serif
+  font-style: italic
+  .fa
+    margin-right: 10px
+
+.contact__row
+  .contact__form,
+  .contact__map
+    margin-bottom: 20px
