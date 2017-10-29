@@ -1,0 +1,53 @@
+@import "../vars"
+
+.nested-slider__slider-row
+  padding-bottom: 80px
+
+.nested-slider__button
+  display: inline-block
+  padding: 10px 20px
+  text-transform: uppercase
+  background-color: $header-color
+  color: #fff
+  border: 1px solid $header-color
+  cursor: pointer
+  text-decoration: none
+  transition: background-color .5s, color .5s
+  &:hover
+    background-color: #fff
+    color: $title-color
+
+.nested-slider
+  .custom-prev,
+  .custom-next
+    position: absolute
+    z-index: 1
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 3em
+    cursor: pointer
+    color: $header-color
+    transition: color .5s
+  .custom-prev:hover,
+  .custom-next:hover
+    color: $text-color
+  .custom-prev
+    left: 1em
+  .custom-next
+    right: 1em
+  .slick-center
+    .slider__gallery-image
+      opacity: 1
+      transform: scale(1)
+
+.nested-slider__header
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  width: 100%
+  text-align: center
+  text-transform: uppercase
+  color: #fff
+  font-size: 3em
+  font-weight: normal
+  font-family: 'Playfair Display', serif

@@ -249,14 +249,12 @@ $(document).ready(function() {
     //---------------------
     //----SLIDER GALLERY---
     //---------------------
-    var gallery = $('.slider__gallery');
-    gallery.slick({
+    $('.slider__gallery').slick({
         dots: false,
         infinite: true,
         centerMode: true,
         centerPadding: '70px',
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToShow: 2,
         speed: 1000,
         variableWidth: true,
         autoplay: true,
