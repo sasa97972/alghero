@@ -436,7 +436,7 @@ $(document).ready(function() {
     //------------------------------
     //---------SHOW SLIDER----------
     //------------------------------
-    var headers = $(".nested-slider__header");
+    var headers = $(".nested-slider .slider__gallery-item");
     console.log(headers);
     headers.on("click", function () {
         var gallery = $(".full-gallery");

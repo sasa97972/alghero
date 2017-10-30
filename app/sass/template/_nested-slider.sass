@@ -52,5 +52,13 @@
   font-family: 'Playfair Display', serif
   cursor: pointer
   transition: color .5s
-  &:hover
-    color: $hover
+
+
+.nested-slider
+  .slider__gallery-item
+    cursor: pointer
+    transition: opacity .5s
+    &:hover
+      opacity: .7
+      .nested-slider__header
+        color: $hover
