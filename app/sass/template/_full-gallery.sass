@@ -1,0 +1,44 @@
+@import "../vars"
+
+.full-gallery
+  visibility: hidden
+  opacity: 0
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: black
+  z-index: 1000
+  .custom-prev,
+  .custom-next
+    position: absolute
+    z-index: 1
+    top: 50%
+    transform: translateY(-50%)
+    color: #fff
+    font-size: 3em
+    cursor: pointer
+    transition: color .5s
+  .custom-prev:hover,
+  .custom-next:hover
+    color: $hover
+  .custom-prev
+    left: 1em
+  .custom-next
+    right: 1em
+
+.full-gallery__content
+  padding: 0
+
+.full-gallery__close
+  position: fixed
+  right: .5em
+  top: 0
+  z-index: 1000
+  color: #fff
+  font-size: 2.5em
+  cursor: pointer
+  transition: color .5s
+  &:hover
+    color: $hover

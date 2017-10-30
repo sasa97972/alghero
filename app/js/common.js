@@ -434,6 +434,30 @@ $(document).ready(function() {
     });
 
     //------------------------------
+    //---------SHOW SLIDER----------
+    //------------------------------
+    var headers = $(".nested-slider__header");
+    console.log(headers);
+    headers.on("click", function () {
+        var gallery = $(".full-gallery");
+        gallery.css("visibility", "visible");
+        gallery.animate({
+            opacity: 1
+        }, 1000, function () {
+           disableScroll();
+           $(".full-gallery__close").on("click", function () {
+               gallery.animate({
+                   opacity: 0
+               }, 1000, function () {
+                   gallery.css("visibility", "hidden");
+               });
+               enableScroll();
+           })
+       });
+    });
+
+
+    //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
     body.animate({
