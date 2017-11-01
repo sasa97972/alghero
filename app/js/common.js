@@ -455,6 +455,12 @@ $(document).ready(function() {
        });
     });
 
+    //------------------------------
+    //-----CLICK CHANGE SLIDE-------
+    //------------------------------
+    $(".video__gallery-item").on("click", function(){
+        $(".video-gallery__slider").slick("slickGoTo", $(this).data("slick-index"));
+    });
 
     //------------------------------
     //--------SHOW CONTENT----------
