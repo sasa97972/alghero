@@ -463,6 +463,16 @@ $(document).ready(function() {
     });
 
     //------------------------------
+    //------------MASONRY-----------
+    //------------------------------
+    $('.portfolio__grid').masonry({
+        itemSelector: '.portfolio__item',
+        percentPosition: true,
+        columnWidth: '.portfolio__sizer',
+        gutter: 20
+    });
+
+    //------------------------------
     //--------SHOW CONTENT----------
     //------------------------------
     body.animate({

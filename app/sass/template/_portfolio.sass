@@ -1,0 +1,54 @@
+@import "../vars"
+
+.portfolio__grid
+  &:after
+    content: ''
+    display: block
+    clear: both
+
+.portfolio__row
+  padding: 60px 0
+
+.portfolio__img
+  display: block
+  max-width: 100%
+  height: auto
+  transition: transform .5s
+
+.portfolio__item
+  position: relative
+  float: left
+  margin-bottom: 20px
+  cursor: pointer
+  overflow: hidden
+  &.width--1
+    width: calc(50% - 20px)
+  &.width--2
+    width: calc(33% - 20px)
+  &:hover
+    .portfolio__description
+      opacity: 1
+      transform: translateY(0px)
+    .portfolio__img
+      transform: scale(1.2)
+
+.portfolio__item,
+.portfolio__sizer
+  width: calc(25% - 20px)
+
+.portfolio__description
+  display: flex
+  align-items: center
+  justify-content: center
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  background-color: rgba(255,255,255,.8)
+  opacity: 0
+  transform: translateY(-50px)
+  transition: opacity .5s, transform .5s
+
+.portfolio__header
+  margin: 0

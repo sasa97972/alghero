@@ -29,6 +29,7 @@ gulp.task('js', ['common-js'], function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
         'app/libs/slick/slick.min.js',
+        'app/libs/masonry/masonry.min.js',
 		'app/js/common.min.js'
 		])
 	.pipe(concat('scripts.min.js'))
