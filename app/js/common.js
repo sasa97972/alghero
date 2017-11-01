@@ -437,7 +437,6 @@ $(document).ready(function() {
     //---------SHOW SLIDER----------
     //------------------------------
     var headers = $(".nested-slider .slider__gallery-item");
-    console.log(headers);
     headers.on("click", function () {
         var gallery = $(".full-gallery");
         gallery.css("visibility", "visible");
@@ -465,10 +464,11 @@ $(document).ready(function() {
     }, 3000);
 
     //------------------------------
-    //----------IMG HEIGHT----------
+    //-----IMG AND VIDEO HEIGHT-----
     //------------------------------
     function autoImgHeight() {
         $(".slider__gallery-image").css("width", $(".container").outerWidth(false));
+        $(".video-gallery__container").css("width", $(".container").outerWidth(false));
     }
     autoImgHeight();
     $(window).on("resize", autoImgHeight);
