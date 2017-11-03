@@ -65,11 +65,10 @@ $(document).ready(function() {
         var padding ;
         if($(window).width() < 577) {
             height = $(window).height() - $(".nav-auto").outerHeight(false);
-            $(".nav-auto").css("position") == "static" ? 0 : $(".nav-auto").outerHeight(false);
-            //padding = $(".nav-auto").outerHeight(false);
+            padding = $(".nav-auto").css("position") == "relative" ? 0 : $(".nav-auto").outerHeight(false);
         } else {
             padding = 0;
-            height = $(window).height();
+            height = $(".nav-auto").css("position") == "relative" ? $(window).height() - $(".nav-auto").outerHeight(false) : $(window).height();
         }
         $(".gallery-fluid").css("paddingTop", padding);
         $(".slider__item").css("height", height);
@@ -572,7 +571,9 @@ $(document).ready(function() {
 
     var first = true;
     function startCount() {
-        var counterTop = $(".counter").offset().top;
+        if($(".counter").length) {
+            var counterTop = $(".counter").offset().top;
+        }
         var top = $(window).scrollTop();
         if(counterTop < top + $(".counter").outerHeight(true)*2) {
             first = false;
