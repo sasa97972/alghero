@@ -24,12 +24,12 @@
   justify-content: center
   padding: 10px
 
-.footer__logo
-  @extend .footer__menu
-
 .footer__logo-content
-  @extend .footer__menu
-  flex-flow: column nowrap
+  display: flex
+  flex-flow: row nowrap
+  align-items: center
+  text-align: center
+  height: 100%
 
 .footer__social
   margin: 0
@@ -51,9 +51,6 @@
 .footer__list
   padding: 0
   margin: 0
-
-.footer__item
-
 
 .footer__link
   color: inherit
@@ -95,10 +92,13 @@
   cursor: pointer
   transition: transform .5s, background-color .5s
   background-color: #eaeaea
+  font-size: 0
   &:hover
     background-color: $text-color
   &:active
     transform: scale(1.1)
+  .fa
+    font-size: 15px
 
 .footer__address
   @extend .footer__menu

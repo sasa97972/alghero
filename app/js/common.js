@@ -61,13 +61,17 @@ $(document).ready(function() {
     //-FULL SCREEN SLIDER--
     //---------------------
     function heightDetect() {
+        var height;
+        var padding;
         if($(window).width() < 577) {
-            $(".slider__item").css("height", $(window).height()-$(".nav").outerHeight(false));
-            $(".gallery-fluid").css("paddingTop", $(".nav").outerHeight(false));
+            height =  $(window).height()-$(".nav").outerHeight(false);
+            padding = $(".nav").outerHeight(false);
         } else {
-            $(".gallery-fluid").css("paddingTop", 0);
-            $(".slider__item").css("height", $(window).height());
+            padding =  0;
+            height =  $(window).height();
         }
+        $(".gallery-fluid").css("paddingTop", padding);
+        $(".slider__item").css("height", height);
     }
     heightDetect();
     $(window).on("resize", function() {
@@ -436,7 +440,7 @@ $(document).ready(function() {
     //------------------------------
     //---------SHOW SLIDER----------
     //------------------------------
-    var headers = $(".nested-slider .slider__gallery-item");
+    var headers = $(".nested-slider .slider__gallery-item,.portfolio__item ");
     headers.on("click", function () {
         var gallery = $(".full-gallery");
         gallery.css("visibility", "visible");
@@ -444,6 +448,8 @@ $(document).ready(function() {
             opacity: 1
         }, 1000, function () {
            disableScroll();
+           $(".slider__item").css("height", $(window).height());
+           console.log($(window).height());
            $(".full-gallery__close").on("click", function () {
                gallery.animate({
                    opacity: 0
@@ -488,6 +494,48 @@ $(document).ready(function() {
     }
     autoImgHeight();
     $(window).on("resize", autoImgHeight);
+
+    //------------------------------
+    //-------IE 10 & 11 DETECT------
+    //------------------------------
+    (function () {
+        var ieStyles = [
+            'msTouchAction',
+            'msWrapFlow',
+            'msWrapMargin',
+            'msWrapThrough',
+            'msOverflowStyle',
+            'msScrollChaining',
+            'msScrollLimit',
+            'msScrollLimitXMin',
+            'msScrollLimitYMin',
+            'msScrollLimitXMax',
+            'msScrollLimitYMax',
+            'msScrollRails',
+            'msScrollSnapPointsX',
+            'msScrollSnapPointsY',
+            'msScrollSnapType',
+            'msScrollSnapX',
+            'msScrollSnapY',
+            'msScrollTranslation',
+            'msFlexbox',
+            'msFlex',
+            'msFlexOrder',
+            'msTextCombineHorizontal'];
+        var d = document;
+        var b = d.body;
+        var s = b.style;
+        var ieVersion = null;
+        var property;
+
+        for (var i = 0; i < ieStyles.length; i++) {
+            property = ieStyles[i];
+
+            if (s[property] !== undefined) {
+                $(".footer__logo-content").css("display", "block");
+            }
+        }
+    })();
 
 });
 
