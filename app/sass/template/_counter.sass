@@ -1,0 +1,34 @@
+@import "../vars"
+
+.counter__row
+  padding: 6em 0
+
+.counter__content
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+
+.counter__icon
+  width: 100px
+  height: 100px
+  background: url("../img/icons.jpg") no-repeat
+
+.counter__content
+  &:nth-child(1)
+    .counter__icon
+      background-position: -109px -1005px
+  &:nth-child(2)
+    .counter__icon
+      background-position: -749px -1134px
+  &:nth-child(3)
+    .counter__icon
+      background-position: -236px -874px
+  &:nth-child(4)
+    .counter__icon
+      background-position: -495px -1134px
+
+.counter__count
+  text-align: center
+  font-size: 3em
+  color: $header-color
+  font-weight: normal

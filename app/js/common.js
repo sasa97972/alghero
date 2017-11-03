@@ -62,13 +62,14 @@ $(document).ready(function() {
     //---------------------
     function heightDetect() {
         var height;
-        var padding;
+        var padding ;
         if($(window).width() < 577) {
-            height =  $(window).height()-$(".nav").outerHeight(false);
-            padding = $(".nav").outerHeight(false);
+            height = $(window).height() - $(".nav-auto").outerHeight(false);
+            $(".nav-auto").css("position") == "static" ? 0 : $(".nav-auto").outerHeight(false);
+            //padding = $(".nav-auto").outerHeight(false);
         } else {
-            padding =  0;
-            height =  $(window).height();
+            padding = 0;
+            height = $(window).height();
         }
         $(".gallery-fluid").css("paddingTop", padding);
         $(".slider__item").css("height", height);
@@ -536,6 +537,53 @@ $(document).ready(function() {
             }
         }
     })();
+
+    //------------------------------
+    //--------WEEDING COUNTER-------
+    //------------------------------
+    function weedingCounter() {
+        var time = 2000; //milliseconds
+
+        var first = time/159;
+
+        var firstNumber = 0;
+        var secondNumber = 0;
+        var thirdNumber = 0;
+        var fourthNumber = 0;
+        function firstCount() {
+            $(".first-count").text(firstNumber++);
+            $(".second-count").text(secondNumber);
+            secondNumber += 88;
+            $(".third-count").text(thirdNumber++);
+            thirdNumber += 4;
+            $(".fourth-count").text(fourthNumber++);
+            fourthNumber += 2;
+            if(firstNumber === 159) {
+                $(".first-count").text(firstNumber);
+                $(".second-count").text(21334);
+                $(".third-count").text(1337);
+                $(".fourth-count").text(518);
+                clearInterval(firstInterval);
+            }
+        }
+
+        var firstInterval = setInterval(firstCount, first);
+    }
+
+    var first = true;
+    function startCount() {
+        var counterTop = $(".counter").offset().top;
+        var top = $(window).scrollTop();
+        if(counterTop < top + $(".counter").outerHeight(true)*2) {
+            first = false;
+            weedingCounter();
+        }
+    }
+    $(window).on("scroll", function () {
+        if (first) {
+            startCount();
+        }
+    }).scroll();
 
 });
 
