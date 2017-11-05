@@ -258,11 +258,39 @@ $(document).ready(function() {
         infinite: true,
         centerMode: true,
         centerPadding: '70px',
-        slidesToShow: 2,
+        slidesToShow: 3,
         speed: 1000,
         variableWidth: true,
         autoplay: true,
         autoplaySpeed: 3000,
+        useCSS: true,
+        useTransform: true,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    dots: true
+                }
+            }]
+    });
+
+    //---------------------
+    //-----VIDEO GALLERY---
+    //---------------------
+    $('.video-gallery__slider').slick({
+        dots: false,
+        infinite: true,
+        centerMode: true,
+        centerPadding: '70px',
+        slidesToShow: 2,
+        speed: 1000,
+        variableWidth: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        useCSS: true,
+        useTransform: true,
         nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
         prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
         responsive: [
