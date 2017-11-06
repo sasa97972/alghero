@@ -19,10 +19,19 @@
   background: url("../img/people/Eva_Puledda.jpg") no-repeat 0 0 / cover
 
 .about__name
+  display: block
   color: $header-color
   font-size: 3em
   font-weight: normal
   font-family: 'Playfair Display', serif
+  text-decoration: none
+  outline: none
+  transition: color .5s
+  &:link,
+  &:visited
+    @extend .about__name
+  &:hover
+    color: $hover
 
 .about__text
   color: $text-color
