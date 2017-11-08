@@ -618,9 +618,11 @@ $(document).ready(function() {
     //---------MENU HEIGHT----------
     //------------------------------
     $(window).on("resize", function () {
-        var height = $(".nav__logo").outerHeight(true);
-        $(".nav__menu").css("height", height);
-        $(".nav__lang").css("height", height);
+        if($(window).height() > 576) {
+            var height = $(".nav__logo").outerHeight(true);
+            $(".nav__menu").css("height", height);
+            $(".nav__lang").css("height", height);
+        }
     }).resize();
 
     //------------------------------
