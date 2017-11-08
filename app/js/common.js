@@ -242,11 +242,11 @@ $(document).ready(function() {
     $(window).scroll(function () {
         if ($(this).scrollTop() > menu.outerHeight(false)) {
             menu.addClass("nav_fixed");
-            $(window).width() > 576 ? $(".nav__logo-img").attr("src", "img/logo.png") : "";
+            $(window).width() > 576 ? $(".nav .nav__logo-img").attr("src", "img/logo.png") : "";
         } else if ($(this).scrollTop() === 0) {
             menu.removeClass("nav_fixed");
             menu.removeClass("nav_collapse");
-            $(window).width() > 576 ? $(".nav__logo-img").attr("src", "img/logo_black.png") : "";
+            $(window).width() > 576 ? $(".nav .nav__logo-img").attr("src", "img/logo_black.png") : "";
         }
     });
 
@@ -613,6 +613,26 @@ $(document).ready(function() {
             startCount();
         }
     }).scroll();
+
+    //------------------------------
+    //---------MENU HEIGHT----------
+    //------------------------------
+    $(window).on("resize", function () {
+        var height = $(".nav__logo").outerHeight(true);
+        $(".nav__menu").css("height", height);
+        $(".nav__lang").css("height", height);
+    }).resize();
+
+    //------------------------------
+    //----------ACCORDEON-----------
+    //------------------------------
+    var accHeaders = $(".faq__header");
+    accHeaders.on("click", function () {
+        $(this).next().html("-");
+        $(this).parent().next().slideDown(500);
+        accHeaders.not($(this)).parent().next().slideUp(500);
+        accHeaders.not($(this)).next().html("+");
+    })
 
 });
 
