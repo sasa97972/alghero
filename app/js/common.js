@@ -287,7 +287,7 @@ $(document).ready(function() {
         slidesToShow: 2,
         speed: 1000,
         variableWidth: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 3000,
         useCSS: true,
         useTransform: true,
@@ -312,9 +312,9 @@ $(document).ready(function() {
         centerPadding: '70px',
         slidesToShow: 5,
         speed: 1000,
-        variableWidth: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 3000,
+        variableWidth: true,
         useCSS: true,
         useTransform: true,
         nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
@@ -494,29 +494,34 @@ $(document).ready(function() {
     //------------------------------
     //---------SHOW SLIDER----------
     //------------------------------
+    var firstOpen = false;
     var headers = $(".nested-slider .slider__gallery-item");
+    var gallery = $(".full-gallery");
     headers.on("click", function () {
-        var gallery = $(".full-gallery");
         gallery.css("visibility", "visible");
         var slide = $(this).parent().data("slick-index");
-        $(".slider-fluid").slick("slickPause", slide);
+        firstOpen || $(".slider-fluid").slick("slickPause");
         $(".slider-fluid").slick("slickGoTo", slide);
         $(".travel__slider-full").css("height", $(window).height());
         gallery.animate({
             opacity: 1
         }, 1000, function () {
            disableScroll();
-           $(".full-gallery__close").on("click", function () {
-               slide = $(".travel__slider-full.slick-active").data("slick-index");
-               $('.travels-slider').slick("slickGoTo", slide);
+           firstOpen || $(".full-gallery__close").on("click", function () {
+               var slide2 = $(".travel__slider-full.slick-active").data("slick-index");
+               $('.travels-slider').slick("slickGoTo", slide2);
                gallery.animate({
                    opacity: 0
                }, 1000, function () {
                    gallery.css("visibility", "hidden");
                });
                enableScroll();
-           })
+               firstOpen = true;
+               return false;
+           });
+            return false;
        });
+        return false;
     });
 
     $(window).on("resize", function () {
