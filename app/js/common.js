@@ -303,6 +303,32 @@ $(document).ready(function() {
     });
 
     //---------------------
+    //---TRAVELS GALLERY---
+    //---------------------
+    $('.travels-slider').slick({
+        dots: false,
+        infinite: true,
+        centerMode: true,
+        centerPadding: '70px',
+        slidesToShow: 5,
+        speed: 1000,
+        variableWidth: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        useCSS: true,
+        useTransform: true,
+        nextArrow: "<span class='custom-next'><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span>",
+        prevArrow: "<span class='custom-prev'><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span>",
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    dots: true
+                }
+            }]
+    });
+
+    //---------------------
     //----PLANNER SLIDER---
     //---------------------
     var planner = $('.planner__slider');
@@ -468,17 +494,21 @@ $(document).ready(function() {
     //------------------------------
     //---------SHOW SLIDER----------
     //------------------------------
-    var headers = $(".nested-slider .slider__gallery-item,.portfolio__item ");
+    var headers = $(".nested-slider .slider__gallery-item");
     headers.on("click", function () {
         var gallery = $(".full-gallery");
         gallery.css("visibility", "visible");
+        var slide = $(this).parent().data("slick-index");
+        $(".slider-fluid").slick("slickPause", slide);
+        $(".slider-fluid").slick("slickGoTo", slide);
+        $(".travel__slider-full").css("height", $(window).height());
         gallery.animate({
             opacity: 1
         }, 1000, function () {
            disableScroll();
-           $(".slider__item").css("height", $(window).height());
-           console.log($(window).height());
            $(".full-gallery__close").on("click", function () {
+               slide = $(".travel__slider-full.slick-active").data("slick-index");
+               $('.travels-slider').slick("slickGoTo", slide);
                gallery.animate({
                    opacity: 0
                }, 1000, function () {
@@ -489,11 +519,41 @@ $(document).ready(function() {
        });
     });
 
+    $(window).on("resize", function () {
+        $(".travel__slider-full").css("height", $(window).height());
+    });
+
+    //------------------------------
+    //----SHOW SLIDER PORTFOLIO-----
+    //------------------------------
+    $(".portfolio__item ").on("click", function () {
+        var gallery = $(".full-gallery");
+        gallery.css("visibility", "visible");
+        $(".slider__item").css("height", $(window).height());
+        gallery.animate({
+            opacity: 1
+        }, 1000, function () {
+            disableScroll();
+            $(".full-gallery__close").on("click", function () {
+                gallery.animate({
+                    opacity: 0
+                }, 1000, function () {
+                    gallery.css("visibility", "hidden");
+                });
+                enableScroll();
+            })
+        });
+    });
+
+
     //------------------------------
     //-----CLICK CHANGE SLIDE-------
     //------------------------------
     $(".video__gallery-item").on("click", function(){
         $(".video-gallery__slider").slick("slickGoTo", $(this).data("slick-index"));
+    });
+    $(".travel-slider__item").on("click", function(){
+        $(".travels-slider").slick("slickGoTo", $(this).data("slick-index"));
     });
 
     //------------------------------
@@ -517,8 +577,9 @@ $(document).ready(function() {
     //-----IMG AND VIDEO HEIGHT-----
     //------------------------------
     function autoImgHeight() {
-        $(".slider__gallery-image").css("width", $(".container").outerWidth(false));
-        $(".video-gallery__container").css("width", $(".container").outerWidth(false));
+        var height = $(".container").outerWidth(false);
+        $(".slider__gallery-image").css("width", height);
+        $(".video-gallery__container").css("width", height);
     }
     autoImgHeight();
     $(window).on("resize", autoImgHeight);
