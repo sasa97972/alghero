@@ -4,9 +4,12 @@
   position: absolute
   top: 50%
   left: 50%
+  padding: 0 20px 20px 20px
   transform: translate(-50%, -50%)
   display: flex
   flex-flow: column nowrap
+  background-color: rgba(0,0,0,.8)
+  border-radius: 15px
 
 .travel-slider__header
   text-align: center
@@ -60,7 +63,18 @@
 
 .travel__slider-full
   position: relative
-  background: url("../img/bg.jpg") no-repeat center center / cover
+  &:nth-child(1)
+    background: linear-gradient(to right, rgba(0,0,0,.0), rgba(0,0,0,.7)), url("../img/travels/slider1.jpg") no-repeat center center / cover
+  &:nth-child(2)
+    background: linear-gradient(to right, rgba(0,0,0,.0), rgba(0,0,0,.7)), url("../img/travels/slider2.jpg") no-repeat center center / cover
+  &:nth-child(3)
+    background: linear-gradient(to right, rgba(0,0,0,.0), rgba(0,0,0,.4)), url("../img/travels/slider3.jpg") no-repeat center center / cover
+  &:nth-child(4)
+    background: linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.7)), url("../img/travels/slider4.jpg") no-repeat center center / cover
+  &:nth-child(5)
+    background: linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.7)), url("../img/travels/slider5.jpg") no-repeat center center / cover
+  &:nth-child(6)
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url("../img/travels/slider6.jpg") no-repeat center center / cover
 
 .travel-slider__info
   width: 100%
