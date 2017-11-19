@@ -1,7 +1,16 @@
 @import "../vars"
 
+.contact__wrap_travels
+  background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url("../img/contacts_parallax.jpg") no-repeat 0 0 / cover
+  background-attachment: fixed
+  .contact__hero-header,
+  .contact__text
+    color: #fff
+
 .contact__row
   padding: 4em 0
+  &.contact__row_travels
+    padding: 2em 0
 
 .contact__header
   font-size: 2.5em
@@ -50,6 +59,8 @@
 .contact__address-wrapper
   display: inline-block
 
+.contact__description-text
+  font-style: normal
 
 .contact__center
   text-align: center
@@ -60,3 +71,11 @@
 .contact__row
   .contact__map
     margin-bottom: 20px
+
+.contact__hero-header
+  padding-top: 1em
+
+.contact__wrap_travels
+  .contact__hero-header,
+  .contact__text
+    color: #fff

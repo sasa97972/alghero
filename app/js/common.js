@@ -700,6 +700,23 @@ $(document).ready(function() {
         $(this).parent().next().slideDown(500);
         accHeaders.not($(this)).parent().next().slideUp(500);
         accHeaders.not($(this)).next().html("+");
+    });
+
+    //------------------------------
+    //-----travel-slider__button----
+    //------------------------------
+    $(".travel-to-contacts").on("click", function () {
+        $(".full-gallery").animate({
+            opacity: 0
+        }, 1000, function () {
+            $(".full-gallery").css("visibility", "hidden");
+            var anchor = $(this);
+            $('html, body').animate({
+                scrollTop: $("#contacts").offset().top
+            }, 500);
+        });
+        enableScroll();
+        firstOpen = true;
     })
 
 });
